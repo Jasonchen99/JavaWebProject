@@ -1,6 +1,4 @@
-<%@ page import="cn.chen.pojo.User" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Jason Chen
   Date: 19/11/29
