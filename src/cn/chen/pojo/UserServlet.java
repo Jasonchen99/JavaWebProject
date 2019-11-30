@@ -18,7 +18,7 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user1=new User("张三","123456",120);
         User user2=new User("李四","66666",150);
-        User user3=new User("王五","88888",180);
+        User user3=new User("王五123","88888",180);
 
         List<User> list=new ArrayList<User>();
         list.add(user1);
