@@ -35,7 +35,7 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request,response);
         }else{
             out.println("<script type='text/javascript'>");
-            out.println("alert('register fail');");
+            out.println("alert('register fail！');");
             out.println("window.location='register.jsp'");
             out.println("</script>");
         }

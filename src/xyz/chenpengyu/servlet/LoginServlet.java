@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request,response);
         }else{
             out.println("<script type='text/javascript'>");
-            out.println("alert('username or password is error');");
+            out.println("alert('Username or Password is error！');");
             out.println("window.location='login.jsp'");
             out.println("</script>");
         }
