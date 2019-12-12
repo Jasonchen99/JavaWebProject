@@ -37,7 +37,6 @@
      
 
 
-
 <!-- Body main wrapper start -->
 <div class="wrapper">
 
@@ -145,55 +144,64 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-banner-content">
-                    <h1>contact us</h1>
+                    <h1>My Account</h1>
                     <ul class="breadcrumb">
                         <li><a href="">Home</a></li>
-                        <li class="active">contact us</li>
+                        <li class="active">Register page</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- END PAGE BANNER SECTION -->
-    
-<!-- PAGE SECTION -->
-<div class="page-section section pt-120 pb-90">
+
+<!-- PAGE SECTION START -->
+<div class="page-section section pt-120 pb-120">
     <div class="container">
-        <div class="row mb-40">
-            <!-- Contact Map -->
-            <div class="contact-map col-md-6 col-xs-12 mb-40">
-                <div id="map"></div>
-            </div>
-            <!-- Contact Form -->
-            <div class="contact-form col-md-6 col-xs-12 mb-40">
-                <h3>Send Your Massage</h3>
-                <form id="contact-form" action="mail.php" method="post">
-                    <div class="row">
-                        <div class="col-sm-6 col-xs-12 mb-20"><input type="text" name="name" placeholder="Your name"></div>
-                        <div class="col-sm-6 col-xs-12 mb-20"><input type="text" name="email" placeholder="Your email"></div>
-                        <div class="col-xs-12 mb-20"><textarea name="message" placeholder="Your message"></textarea></div>
-                        <div class="col-xs-12"><input type="submit" value="SUBMIT"></div>
-                    </div>
-                </form>
-                <p class="form-messege">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <div class="login-reg-form">
+                    <form action="RegisterServlet" method="post">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12 mb-20">
+                                <label for="r_f_name">UserName</label>
+                                <input id="r_f_name" name="username" type="text">
+                            </div>
+                            <div class="col-sm-6 col-xs-12 mb-20">
+                                <label for="r_l_name">ID</label>
+                                <input id="r_l_name" name="uid" type="text" readonly="readonly">
+                            </div>
+                            <div class="col-sm-6 col-xs-12 mb-20">
+                                <label for="r_email">Email Address</label>										
+                                <input id="r_email" name="email" type="email">
+                            </div>
+                            <div class="col-sm-6 col-xs-12 mb-20">
+                                <label for="r_phone">Phone </label>										
+                                <input id="r_phone" name="pnum" type="text">
+                            </div>
+                            <div class="col-xs-12 mb-20">
+                                <label class="" for="r_password">Account password</label>
+                                <input id="r_password" name="password"  type="password">
+                            </div>
+                            <div class="col-xs-12 mb-20">
+                                <label class="" for="r_c_password">Confirm password</label>
+                                <input id="r_c_password" type="password">
+                            </div>
+                            <div class="col-xs-12 mb-20">
+                                <label><input name="sex" type="radio" value="1" />男 </label>
+                                <label><input name="sex" type="radio" value="0" />女 </label>
+                            </div>
+                            <div class="col-xs-12">
+                                <input value="register" type="submit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <!-- Contact Info -->
-		<div class="row">
-		    <div class="contact-info col-md-4 text-center mb-30">
-		        <a href="">Phone: +88 58 7485 6987 65</a>
-		    </div>
-		    <div class="contact-info col-md-4 text-center mb-30">
-		        <a href="mailto:outside@email.com">Email: outside@email.com</a>
-		    </div>
-		    <div class="contact-info col-md-4 text-center mb-30">
-		        <p>Address: house 09,Road 3,Dhaka</p>
-		    </div>
-		</div>
     </div>
 </div>
-<!-- END PAGE SECTION -->
+<!-- PAGE SECTION END --> 
 
 <!-- FOOTER TOP SECTION START -->
 <div class="footer-top-section section pt-100 pb-60">
@@ -231,7 +239,7 @@
 			<!-- Footer Widget -->
 			<div class="footer-widget col-md-3 col-sm-6 col-xs-12 mb-40">
 				<h5 class="widget-title">SIGN UP FOR OUR AWESOME NEWS</h5>
-				<form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="sunscribe-form validate" target="_blank" novalidate="">
+				<form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="sunscribe-form validate" target="_blank" novalidate="">
                     <div id="mc_embed_signup_scroll">
                         <label for="mce-EMAIL" class="hidden">Subscribe to our mailing list</label>
                         <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required="">
@@ -268,7 +276,8 @@
 		</div>
 	</div>
 </div>
-<!-- FOOTER BOTTOM SECTION END -->
+<!-- FOOTER BOTTOM SECTION END -->  
+   
 
 </div>
 <!-- Body main wrapper end -->
@@ -282,10 +291,6 @@
 <script src="js/bootstrap.min.js"></script>
 <!-- Plugins js -->
 <script src="js/plugins.js"></script>
-<!-- Google Map APi -->
-<script src="../../../../maps/api/74ae14f0-244d-46f9-a3ed-24bf132e3be9.js"></script>
-<!-- Map Activation -->
-<script src="js/map.js"></script>
 <!-- Ajax Mail js -->
 <script src="js/ajax-mail.js"></script>
 <!-- Main js -->

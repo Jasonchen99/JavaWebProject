@@ -24,12 +24,13 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out=response.getWriter();
         String username=request.getParameter("username");
+        int uid= Integer.parseInt(request.getParameter("uid"));
         String password=request.getParameter("password");
         String email=request.getParameter("email");
-        String phone=request.getParameter("phone");
-        String sex=request.getParameter("sex");
+        String pnum=request.getParameter("pnum");
+        int sex= Integer.parseInt(request.getParameter("sex"));
         UserDao userDao=new UserDaoImpl();
-        User user=new User(username,password,email,phone,sex);
+        User user=new User(username,uid,password,email,pnum,sex,0);
         int count=userDao.addUser(user);
         if (count>0){
             request.getRequestDispatcher("login.jsp").forward(request,response);

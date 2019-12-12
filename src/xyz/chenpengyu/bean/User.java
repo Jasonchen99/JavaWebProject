@@ -5,25 +5,12 @@ package xyz.chenpengyu.bean;
  */
 public class User {
     private String username;
+    private int uid;
     private String password;
     private String email;
-    private String phone;
-    private String sex;
-
-    public User() {}
-
-    public User(String username, String password, String email, String phone, String sex) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
-        this.sex = sex;
-    }
-
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+    private String pnum;
+    private int sex;
+    private int admin;
 
     public String getUsername() {
         return username;
@@ -31,6 +18,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public String getPassword() {
@@ -49,30 +44,44 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPnum() {
+        return pnum;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPnum(String pnum) {
+        this.pnum = pnum;
     }
 
-    public String getSex() {
+    public int getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(int sex) {
         this.sex = sex;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", sex='" + sex + '\'' +
-                '}';
+    public int getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+
+    public User() {}
+
+    public User(int uid, String password) {
+        this.uid = uid;
+        this.password = password;
+    }
+
+    public User(String username, int uid, String password, String email, String pnum, int sex, int admin) {
+        this.username = username;
+        this.uid = uid;
+        this.password = password;
+        this.email = email;
+        this.pnum = pnum;
+        this.sex = sex;
+        this.admin = admin;
     }
 }

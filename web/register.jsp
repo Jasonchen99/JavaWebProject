@@ -41,124 +41,102 @@
 <div class="wrapper">
 
 <!-- START HEADER SECTION -->
-<header class="header-section section sticker">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <!-- logo -->
-                <div class="header-logo float-left">
-                    <a href="index.jsp"><img src="img/logo.png" alt="main logo"></a>
-                </div>
-                <!-- header-search & total-cart -->
-                <div class="float-right">
-                    <div class="header-option-btns float-right">
-                        <!-- header-search -->
-                        <div class="header-search float-left">
-                            <button class="search-toggle" data-toggle="dropdown"><i class="pe-7s-search"></i></button>
-                            <div class="dropdown-menu header-search-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Search">
-                                    <button><i class="fa fa-long-arrow-right"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- header Account -->
-                        <div class="header-account float-left">
-                            <ul>
-                                <li><a href="" data-toggle="dropdown"><i class="pe-7s-config"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="login.jsp">Log in</a></li>
-                                        <li><a href="">Register</a></li>
-                                        <li><a href="">My Account</a></li>
-                                        <li><a href="wishlist.html">Wish list</a></li>
-                                        <li><a href="checkout.jsp">Checkout</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Header Cart -->
-                        <div class="header-cart float-left">
-                            <!-- Cart Toggle -->
-                            <a class="cart-toggle" href="" data-toggle="dropdown">
-                                <i class="pe-7s-cart"></i>
-                                <span>2</span>
-                            </a>
-                            <!-- Mini Cart Brief -->
-                            <div class="mini-cart-brief dropdown-menu text-left">
-                                <!-- Cart Products -->
-                                <div class="all-cart-product clearfix">
-                                    <div class="single-cart clearfix">
-                                        <div class="cart-image">
-                                            <a href="product-details.jsp"><img src="img/product/cart-1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="cart-info">
-                                            <h5><a href="product-details.jsp">Le Parc Minotti Chair</a></h5>
-                                            <p>1 x £9.00</p>
-                                            <a href="" class="cart-delete" title="Remove this item"><i class="pe-7s-trash"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="single-cart clearfix">
-                                        <div class="cart-image">
-                                            <a href="product-details.jsp"><img src="img/product/cart-2.jpg" alt=""></a>
-                                        </div>
-                                        <div class="cart-info">
-                                            <h5><a href="product-details.jsp">DSR Eiffel chair</a></h5>
-                                            <p>1 x £9.00</p>
-                                            <a href="" class="cart-delete" title="Remove this item"><i class="pe-7s-trash"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Cart Total -->
-                                <div class="cart-totals">
-                                    <h5>Total <span>£12.00</span></h5>
-                                </div>
-                                <!-- Cart Button -->
-                                <div class="cart-bottom  clearfix">
-                                    <a href="checkout.jsp">Check out</a>
-                                </div>
-                            </div>
-                        </div>
+    <header class="header-section section sticker">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- logo -->
+                    <div class="header-logo float-left">
+                        <a href=""><img src="img/logo.png" alt="main logo"></a>
                     </div>
-                    <nav class="main-menu menu-right float-right">
-                        <ul>
-                            <li><a href="index.jsp">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.jsp">Home one</a></li>
-                                    <li><a href="index-2.html">Home two</a></li>
-                                    <li><a href="index-3.html">Home three</a></li>
+                    <!-- header-search & total-cart -->
+                    <div class="float-right">
+                        <div class="header-option-btns float-right">
+                            <!-- header-search -->
+                            <div class="header-search float-left">
+                                <button class="search-toggle" data-toggle="dropdown"><i class="pe-7s-search"></i>
+                                </button>
+                                <div class="dropdown-menu header-search-form">
+                                    <form action="#">
+                                        <input type="text" placeholder="Search">
+                                        <button><i class="fa fa-long-arrow-right"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- header Account -->
+                            <div class="header-account float-left">
+                                <ul>
+                                    <li><a href="" data-toggle="dropdown"><i class="pe-7s-config"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="login.jsp">Log in</a></li>
+                                            <li><a href="register.jsp">Register</a></li>
+                                            <li><a href="myaccount.jsp">My Account</a></li>
+                                            <li><a href="myorder.jsp">My Order</a></li>
+                                            <li><a href="checkout.jsp">Checkout</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li><a href="shop.jsp">shop</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop.jsp">shop</a></li>
-                                    <li><a href="product-details.jsp">product details</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="cart.jsp">cart</a></li>
-                                    <li><a href="checkout.jsp">checkout</a></li>
-                                    <li><a href="login.jsp">login</a></li>
-                                    <li class="active"><a href="">register</a></li>
-                                    <li><a href="wishlist.html">wishlist</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog.html">Blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="blog-details.html">blog details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.jsp">Contact</a></li>
-                        </ul>
-                    </nav>
+                            </div>
+                            <!-- Header Cart -->
+                            <div class="header-cart float-left">
+                                <!-- Cart Toggle -->
+                                <a class="cart-toggle" href="" data-toggle="dropdown">
+                                    <i class="pe-7s-cart"></i>
+                                    <span>2</span>
+                                </a>
+                                <!-- Mini Cart Brief -->
+                                <div class="mini-cart-brief dropdown-menu text-left">
+                                    <!-- Cart Products -->
+                                    <div class="all-cart-product clearfix">
+                                        <div class="single-cart clearfix">
+                                            <div class="cart-image">
+                                                <a href="product-details.jsp"><img src="img/product/cart-1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="cart-info">
+                                                <h5><a href="product-details.jsp">Le Parc Minotti Chair</a></h5>
+                                                <p>1 x £9.00</p>
+                                                <a href="" class="cart-delete" title="Remove this item"><i
+                                                        class="pe-7s-trash"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="single-cart clearfix">
+                                            <div class="cart-image">
+                                                <a href="product-details.jsp"><img src="img/product/cart-2.jpg" alt=""></a>
+                                            </div>
+                                            <div class="cart-info">
+                                                <h5><a href="product-details.jsp">DSR Eiffel chair</a></h5>
+                                                <p>1 x £9.00</p>
+                                                <a href="" class="cart-delete" title="Remove this item"><i
+                                                        class="pe-7s-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Cart Total -->
+                                    <div class="cart-totals">
+                                        <h5>Total <span>£12.00</span></h5>
+                                    </div>
+                                    <!-- Cart Button -->
+                                    <div class="cart-bottom  clearfix">
+                                        <a href="checkout.jsp">Check out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="main-menu menu-right float-right">
+                            <ul>
+                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="shop.jsp">Shop</a></li>
+                                <li><a href="cart.jsp">Cart</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="mobile-menu"></div>
                 </div>
-                <div class="mobile-menu"></div>
             </div>
         </div>
-    </div>
-</header>
-<!-- END HEADER SECTION -->
+    </header>
+    <!-- END HEADER SECTION -->
 
 <!-- PAGE BANNER SECTION -->
 <div class="page-banner-section section">
@@ -190,12 +168,16 @@
                                 <input id="r_f_name" name="username" type="text">
                             </div>
                             <div class="col-sm-6 col-xs-12 mb-20">
+                                <label for="r_l_name">ID <span class="required">*</span></label>
+                                <input id="r_l_name" name="uid" type="text">
+                            </div>
+                            <div class="col-sm-6 col-xs-12 mb-20">
                                 <label for="r_email">Email Address <span class="required">*</span></label>										
                                 <input id="r_email" name="email" type="email">
                             </div>
                             <div class="col-sm-6 col-xs-12 mb-20">
                                 <label for="r_phone">Phone  <span class="required">*</span></label>										
-                                <input id="r_phone" name="phone" type="text">
+                                <input id="r_phone" name="pnum" type="text">
                             </div>
                             <div class="col-xs-12 mb-20">
                                 <label class="" for="r_password">Account password<span class="required">*</span></label>
@@ -206,8 +188,8 @@
                                 <input id="r_c_password" type="password">
                             </div>
                             <div class="col-xs-12 mb-20">
-                                <label><input name="sex" type="radio" value="男" />男 </label>
-                                <label><input name="sex" type="radio" value="女" />女 </label>
+                                <label><input name="sex" type="radio" value="1" />男 </label>
+                                <label><input name="sex" type="radio" value="0" />女 </label>
                             </div>
                             <div class="col-xs-12 mb-20">
                                 <input id="rememberme" type="checkbox">

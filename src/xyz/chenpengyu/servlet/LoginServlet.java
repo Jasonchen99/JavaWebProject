@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
-    protected void rememberMe(String rememberMe,String username,String password,HttpServletRequest request, HttpServletResponse response){
+    protected void rememberMe(String rememberMe,int uid,String password,HttpServletRequest request, HttpServletResponse response){
 
     }
 
@@ -24,15 +24,15 @@ public class LoginServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out=response.getWriter();
-        String username=request.getParameter("username");
+        int uid= Integer.parseInt(request.getParameter("uid"));
         String password=request.getParameter("password");
         String rememberMe=request.getParameter("rememberme");
         UserDao userDao=new UserDaoImpl();
-        User user=new User(username,password);
+        User user=new User(uid,password);
         int count=userDao.findUser(user);
         if (count>0){
             request.getSession().setAttribute("SESSION_user",user);
-            rememberMe(rememberMe,username,password,request,response);
+            rememberMe(rememberMe,uid,password,request,response);
             request.getRequestDispatcher("index.jsp").forward(request,response);
         }else{
             out.println("<script type='text/javascript'>");
