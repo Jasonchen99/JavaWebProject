@@ -1,4 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -59,7 +60,7 @@
                             class="am-icon-angle-right am-fr am-margin-right"></span> </a>
                 </li>
                 <li class="admin-parent">
-                    <a class="am-cf" href="role.jsp" target="right"><span class="am-icon-file"></span> 订单管理<span
+                    <a class="am-cf" href="ordermanage.jsp" target="right"><span class="am-icon-file"></span> 订单管理<span
                             class="am-icon-angle-right am-fr am-margin-right"></span> </a>
 
                 </li>
@@ -96,7 +97,7 @@
     <!-- content start -->
     <div class="admin-content">
         <div class="admin-content-body">
-            <iframe src="role.jsp" width="100%" height="1100" name="right" style="border: none;"></iframe>
+            <iframe src="ordermanage.jsp" width="100%" height="1100" name="right" style="border: none;"></iframe>
         </div>
     </div>
 

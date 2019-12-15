@@ -40,7 +40,7 @@ public class LoginAndRegisterServlet extends HttpServlet {
         if (user1.getUsername()!=null){
             request.getSession().setAttribute("SESSION_user",user1);
             if (user1.getAdmin()==0){
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+                request.getRequestDispatcher("PhoneServlet?method=displayPhone").forward(request,response);
             }else if (user1.getAdmin()==1){
                 request.getRequestDispatcher("admin.jsp").forward(request,response);
             }

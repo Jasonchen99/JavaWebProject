@@ -1,5 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix ="c" uri ="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -67,8 +67,10 @@
                                 <ul>
                                     <li><a href="" data-toggle="dropdown"><i class="pe-7s-config"></i></a>
                                         <ul class="dropdown-menu">
+                                        <c:if test="${sessionScope.SESSION_user==null}">
                                             <li><a href="login.jsp">Log in</a></li>
                                             <li><a href="register.jsp">Register</a></li>
+                                        </c:if>
                                             <li><a href="myaccount.jsp">My Account</a></li>
                                             <li><a href="myorder.jsp">My Order</a></li>
                                             <li><a href="checkout.jsp">Checkout</a></li>
@@ -124,7 +126,6 @@
                         <nav class="main-menu menu-right float-right">
                             <ul>
                                 <li><a href="index.jsp">Home</a></li>
-                                <li><a href="shop.jsp">Shop</a></li>
                                 <li><a href="cart.jsp">Cart</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>
@@ -149,8 +150,10 @@
             <div class="container">
                 <div class="row">
                     <div class="hero-slider-content col-sm-8 col-xs-12">
-                        <h1 style="color: white" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">Apple iPhone 11 pro</h1>
-                        <p style="color: white" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">There are many variations of
+                        <h1 style="color: white" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">Apple
+                            iPhone 11 pro</h1>
+                        <p style="color: white" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">There
+                            are many variations of
                             passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
                             by injected humour, </p>
                         <a href="product-details.jsp" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.5s">shop
@@ -164,8 +167,10 @@
             <div class="container">
                 <div class="row">
                     <div class="hero-slider-content col-sm-8 col-xs-12">
-                        <h1 style="color: white" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">HUAWEI Mate30 pro</h1>
-                        <p style="color: white" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">There are many variations of
+                        <h1 style="color: white" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                            HUAWEI Mate30 pro</h1>
+                        <p style="color: white" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">There
+                            are many variations of
                             passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
                             by injected humour, </p>
                         <a href="product-details.jsp" class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.5s">shop
@@ -254,290 +259,44 @@
             </div>
 
             <div class="isotope-grid row">
-                <!-- Product Item Start -->
-                <div class="isotope-item chair home-decor col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
-                    <div class="product-item text-center">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <!-- Image -->
-                            <a class="image" href="product-details.jsp"><img src="img/product/1.jpg" alt=""></a>
-                            <!-- Wishlist Button -->
-                            <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                            <!-- Action Button -->
-                            <div class="action-btn fix">
-                                <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                        class="pe-7s-look"></i>Quick view</a>
-                                <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
+                <c:forEach items="${sessionScope.SESSION_phoneList}" var="p">
+                    <!-- Product Item Start -->
+                    <div class="isotope-item chair home-decor col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
+                        <div class="product-item text-center">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <!-- Image -->
+                                <a class="image" href="product-details.jsp"><img src="${p.image}" alt=""></a>
+                                <!-- Wishlist Button -->
+                                <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
+                                <!-- Action Button -->
+                                <div class="action-btn fix">
+                                    <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
+                                            class="pe-7s-look"></i>Quick view</a>
+                                    <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Portfolio Info -->
-                        <div class="product-info text-left">
-                            <!-- Title -->
-                            <h5 class="title"><a href="product-details.jsp">Le Parc Minotti Chair</a></h5>
-                            <!-- Price Ratting -->
-                            <div class="price-ratting fix">
-                                <span class="price float-left"><span class="new">€169.00</span></span>
-                                <span class="ratting float-right">
+                            <!-- Portfolio Info -->
+                            <div class="product-info text-left">
+                                <!-- Title -->
+                                <h5 class="title"><a href="product-details.jsp">${p.brand} ${p.model}</a></h5>
+                                <!-- Price Ratting -->
+                                <div class="price-ratting fix">
+                                    <span class="price float-left"><span class="new">￥${p.price}</span></span>
+                                    <span class="ratting float-right">
                                 <i class="fa fa-star active"></i>
                                 <i class="fa fa-star active"></i>
                                 <i class="fa fa-star active"></i>
                                 <i class="fa fa-star active"></i>
                                 <i class="fa fa-star active"></i>
                             </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Product Item End -->
-                <!-- Product Item Start -->
-                <div class="isotope-item ptable col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
-                    <div class="product-item text-center">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <!-- Image -->
-                            <a class="image" href="product-details.jsp"><img src="img/product/2.jpg" alt=""></a>
-                            <!-- Wishlist Button -->
-                            <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                            <!-- Action Button -->
-                            <div class="action-btn fix">
-                                <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                        class="pe-7s-look"></i>Quick view</a>
-                                <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Portfolio Info -->
-                        <div class="product-info text-left">
-                            <!-- Title -->
-                            <h5 class="title"><a href="product-details.jsp">DSR Eiffel chair</a></h5>
-                            <!-- Price Ratting -->
-                            <div class="price-ratting fix">
-                                <span class="price float-left"><span class="new">€137.00</span><span
-                                        class="old">€115.00</span></span>
-                                <span class="ratting float-right">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Item End -->
-                <!-- Product Item Start -->
-                <div class="isotope-item lighting col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
-                    <div class="product-item text-center">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <!-- Image -->
-                            <a class="image" href="product-details.jsp"><img src="img/product/8.jpg" alt=""></a>
-                            <!-- Wishlist Button -->
-                            <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                            <!-- Action Button -->
-                            <div class="action-btn fix">
-                                <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                        class="pe-7s-look"></i>Quick view</a>
-                                <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Portfolio Info -->
-                        <div class="product-info text-left">
-                            <!-- Title -->
-                            <h5 class="title"><a href="product-details.jsp">pendant lights</a></h5>
-                            <!-- Price Ratting -->
-                            <div class="price-ratting fix">
-                                <span class="price float-left"><span class="new">€245.00</span></span>
-                                <span class="ratting float-right">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Item End -->
-                <!-- Product Item Start -->
-                <div class="isotope-item ptable home-decor col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
-                    <div class="product-item text-center">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <!-- Image -->
-                            <a class="image" href="product-details.jsp"><img src="img/product/3.jpg" alt=""></a>
-                            <!-- Wishlist Button -->
-                            <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                            <!-- Action Button -->
-                            <div class="action-btn fix">
-                                <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                        class="pe-7s-look"></i>Quick view</a>
-                                <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Portfolio Info -->
-                        <div class="product-info text-left">
-                            <!-- Title -->
-                            <h5 class="title"><a href="product-details.jsp">3d laser cut models</a></h5>
-                            <!-- Price Ratting -->
-                            <div class="price-ratting fix">
-                                <span class="price float-left"><span class="new">€185.00</span><span class="old">€125..00</span></span>
-                                <span class="ratting float-right">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Item End -->
-                <!-- Product Item Start -->
-                <div class="isotope-item chair lighting col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
-                    <div class="product-item text-center">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <!-- Image -->
-                            <a class="image" href="product-details.jsp"><img src="img/product/4.jpg" alt=""></a>
-                            <!-- Wishlist Button -->
-                            <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                            <!-- Action Button -->
-                            <div class="action-btn fix">
-                                <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                        class="pe-7s-look"></i>Quick view</a>
-                                <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Portfolio Info -->
-                        <div class="product-info text-left">
-                            <!-- Title -->
-                            <h5 class="title"><a href="product-details.jsp">carl hansen ch25</a></h5>
-                            <!-- Price Ratting -->
-                            <div class="price-ratting fix">
-                                <span class="price float-left"><span class="new">€245.00</span></span>
-                                <span class="ratting float-right">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Item End -->
-                <!-- Product Item Start -->
-                <div class="isotope-item chair col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
-                    <div class="product-item text-center">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <!-- Image -->
-                            <a class="image" href="product-details.jsp"><img src="img/product/5.jpg" alt=""></a>
-                            <!-- Wishlist Button -->
-                            <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                            <!-- Action Button -->
-                            <div class="action-btn fix">
-                                <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                        class="pe-7s-look"></i>Quick view</a>
-                                <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Portfolio Info -->
-                        <div class="product-info text-left">
-                            <!-- Title -->
-                            <h5 class="title"><a href="product-details.jsp">DSR Eiffel chair</a></h5>
-                            <!-- Price Ratting -->
-                            <div class="price-ratting fix">
-                                <span class="price float-left"><span class="new">€137.00</span><span
-                                        class="old">€115.00</span></span>
-                                <span class="ratting float-right">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Item End -->
-                <!-- Product Item Start -->
-                <div class="isotope-item ptable col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
-                    <div class="product-item text-center">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <!-- Image -->
-                            <a class="image" href="product-details.jsp"><img src="img/product/6.jpg" alt=""></a>
-                            <!-- Wishlist Button -->
-                            <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                            <!-- Action Button -->
-                            <div class="action-btn fix">
-                                <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                        class="pe-7s-look"></i>Quick view</a>
-                                <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Portfolio Info -->
-                        <div class="product-info text-left">
-                            <!-- Title -->
-                            <h5 class="title"><a href="product-details.jsp">Retro chairs</a></h5>
-                            <!-- Price Ratting -->
-                            <div class="price-ratting fix">
-                                <span class="price float-left"><span class="new">€169.00</span></span>
-                                <span class="ratting float-right">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Item End -->
-                <!-- Product Item Start -->
-                <div class="isotope-item home-decor lighting col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-50">
-                    <div class="product-item text-center">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <!-- Image -->
-                            <a class="image" href="product-details.jsp"><img src="img/product/7.jpg" alt=""></a>
-                            <!-- Wishlist Button -->
-                            <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                            <!-- Action Button -->
-                            <div class="action-btn fix">
-                                <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                        class="pe-7s-look"></i>Quick view</a>
-                                <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
-                            </div>
-                        </div>
-                        <!-- Portfolio Info -->
-                        <div class="product-info text-left">
-                            <!-- Title -->
-                            <h5 class="title"><a href="product-details.jsp">kichler pendant light</a></h5>
-                            <!-- Price Ratting -->
-                            <div class="price-ratting fix">
-                                <span class="price float-left"><span class="new">€185.00</span><span class="old">€125..00</span></span>
-                                <span class="ratting float-right">
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Item End -->
+                    <!-- Product Item End -->
+                </c:forEach>
             </div>
-
             <div class="row">
                 <div class="text-center col-xs-12 mt-30">
                     <a href="" class="btn load-more-product">load more</a>

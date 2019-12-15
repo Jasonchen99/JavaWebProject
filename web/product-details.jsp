@@ -1,4 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -69,8 +70,10 @@
                                 <ul>
                                     <li><a href="" data-toggle="dropdown"><i class="pe-7s-config"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="login.jsp">Log in</a></li>
-                                            <li><a href="register.jsp">Register</a></li>
+                                            <c:if test="${sessionScope.SESSION_user==null}">
+                                                <li><a href="login.jsp">Log in</a></li>
+                                                <li><a href="register.jsp">Register</a></li>
+                                            </c:if>
                                             <li><a href="myaccount.jsp">My Account</a></li>
                                             <li><a href="myorder.jsp">My Order</a></li>
                                             <li><a href="checkout.jsp">Checkout</a></li>
@@ -126,7 +129,6 @@
                         <nav class="main-menu menu-right float-right">
                             <ul>
                                 <li><a href="index.jsp">Home</a></li>
-                                <li><a href="shop.jsp">Shop</a></li>
                                 <li><a href="cart.jsp">Cart</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>
