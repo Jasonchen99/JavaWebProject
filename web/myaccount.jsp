@@ -165,31 +165,27 @@
                         <div class="row">
                             <div class="col-sm-6 col-xs-12 mb-20">
                                 <label for="r_f_name">UserName</label>
-                                <input id="r_f_name" name="username" type="text">
+                                <input id="r_f_name" name="username" value="${sessionScope.SESSION_user.username}" type="text">
                             </div>
                             <div class="col-sm-6 col-xs-12 mb-20">
                                 <label for="r_l_name">ID</label>
-                                <input id="r_l_name" name="uid" type="text" readonly="readonly">
+                                <input id="r_l_name" name="uid" type="text" value="${sessionScope.SESSION_user.uid}" readonly="readonly">
                             </div>
                             <div class="col-sm-6 col-xs-12 mb-20">
                                 <label for="r_email">Email Address</label>										
-                                <input id="r_email" name="email" type="email">
+                                <input id="r_email" name="email" type="email" value="${sessionScope.SESSION_user.email}">
                             </div>
                             <div class="col-sm-6 col-xs-12 mb-20">
                                 <label for="r_phone">Phone </label>										
-                                <input id="r_phone" name="pnum" type="text">
+                                <input id="r_phone" name="pnum"  type="text" value="${sessionScope.SESSION_user.pnum}">
                             </div>
                             <div class="col-xs-12 mb-20">
                                 <label class="" for="r_password">Account password</label>
-                                <input id="r_password" name="password"  type="password">
+                                <input id="r_password" name="password" value="${sessionScope.SESSION_user.password}" type="password">
                             </div>
                             <div class="col-xs-12 mb-20">
                                 <label class="" for="r_c_password">Confirm password</label>
                                 <input id="r_c_password" type="password">
-                            </div>
-                            <div class="col-xs-12 mb-20">
-                                <label><input name="sex" type="radio" value="1" />男 </label>
-                                <label><input name="sex" type="radio" value="0" />女 </label>
                             </div>
                             <div class="col-xs-12">
                                 <input value="register" type="submit">

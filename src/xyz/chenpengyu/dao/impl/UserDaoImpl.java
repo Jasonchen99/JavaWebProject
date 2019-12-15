@@ -40,9 +40,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int findUser(User user) {
-        int count=-1;
-        String sql="select count(1) as cnum from user where uid=? and password=?";
+    public User findUser(User user) {
+        User user1=new User();
+        String sql="select username,uid,password,email,pnum,sex,admin from user where uid=? and password=?";
         connection= JDBCUtil.getConnection();
         try {
             pstmt=connection.prepareStatement(sql);
@@ -50,13 +50,19 @@ public class UserDaoImpl implements UserDao {
             pstmt.setString(2,user.getPassword());
             rs=pstmt.executeQuery();
             if (rs.next()){
-                count=rs.getInt("cnum");
+                user1.setUsername(rs.getString("username"));
+                user1.setUid(rs.getInt("uid"));
+                user1.setPassword(rs.getString("password"));
+                user1.setEmail(rs.getString("email"));
+                user1.setPnum(rs.getString("pnum"));
+                user1.setSex(rs.getInt("sex"));
+                user1.setAdmin(rs.getInt("admin"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
             JDBCUtil.closeAll(connection,rs,pstmt);
         }
-        return count;
+        return user1;
     }
 }

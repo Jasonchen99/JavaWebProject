@@ -7,7 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html">
 
     <title></title>
-
     <link rel="stylesheet" href="css/amazeui.min.css">
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/app.css">

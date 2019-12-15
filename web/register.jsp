@@ -161,7 +161,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-xs-12">
                 <div class="login-reg-form">
-                    <form action="RegisterServlet" method="post">
+                    <form action="LoginAndRegisterServlet" method="post">
+                        <input type="hidden" name="method" value="register">
                         <div class="row">
                             <div class="col-sm-6 col-xs-12 mb-20">
                                 <label for="r_f_name">UserName <span class="required">*</span></label>

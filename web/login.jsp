@@ -159,10 +159,11 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
                 <div class="login-reg-form">
-                    <form action="LoginServlet" method="post">
+                    <form action="LoginAndRegisterServlet" method="post">
+                        <input type="hidden" name="method" value="login">
                         <div class="row">
                             <div class="col-xs-12 mb-20">
-                                <label for="username">Username<span class="required">*</span></label>
+                                <label for="username">ID<span class="required">*</span></label>
                                 <input name="uid" id="username" type="text">
                             </div>
                             <div class="col-xs-12 mb-20">
