@@ -28,14 +28,14 @@
 				<div class="am-g">
 					<form class="am-form am-form-horizontal" style="margin-left: -300px;margin-top: 80px;" method="post" style="padding-top:30px;" data-am-validator="">
 						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label">
+							<label class="am-u-sm-3 am-form-label">
 							新密码 </label>
 							<div class="am-u-sm-9">
 								<input type="password" id="doc-vld-pwd-1" required="" placeholder="请输入新密码" name="password"> <small>输入新密码。</small>
 							</div>
 						</div>
 						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label">
+							<label class="am-u-sm-3 am-form-label">
 								重复密码</label>
 							<div class="am-u-sm-9">
 								<input type="password" id="doc-vld-pwd-2" required="" placeholder="请输入重复密码" name="pwd" data-equal-to="#doc-vld-pwd-1" required=""> <small>输入重复密码。</small>
