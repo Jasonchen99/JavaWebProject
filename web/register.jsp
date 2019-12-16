@@ -80,50 +80,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Header Cart -->
-                            <div class="header-cart float-left">
-                                <!-- Cart Toggle -->
-                                <a class="cart-toggle" href="" data-toggle="dropdown">
-                                    <i class="pe-7s-cart"></i>
-                                    <span>2</span>
-                                </a>
-                                <!-- Mini Cart Brief -->
-                                <div class="mini-cart-brief dropdown-menu text-left">
-                                    <!-- Cart Products -->
-                                    <div class="all-cart-product clearfix">
-                                        <div class="single-cart clearfix">
-                                            <div class="cart-image">
-                                                <a href="product-details.jsp"><img src="img/product/cart-1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="product-details.jsp">Le Parc Minotti Chair</a></h5>
-                                                <p>1 x £9.00</p>
-                                                <a href="" class="cart-delete" title="Remove this item"><i
-                                                        class="pe-7s-trash"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="single-cart clearfix">
-                                            <div class="cart-image">
-                                                <a href="product-details.jsp"><img src="img/product/cart-2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="product-details.jsp">DSR Eiffel chair</a></h5>
-                                                <p>1 x £9.00</p>
-                                                <a href="" class="cart-delete" title="Remove this item"><i
-                                                        class="pe-7s-trash"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Cart Total -->
-                                    <div class="cart-totals">
-                                        <h5>Total <span>£12.00</span></h5>
-                                    </div>
-                                    <!-- Cart Button -->
-                                    <div class="cart-bottom  clearfix">
-                                        <a href="checkout.jsp">Check out</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <nav class="main-menu menu-right float-right">
                             <ul>
@@ -193,10 +149,6 @@
                             <div class="col-xs-12 mb-20">
                                 <label><input name="sex" type="radio" value="1" />男 </label>
                                 <label><input name="sex" type="radio" value="0" />女 </label>
-                            </div>
-                            <div class="col-xs-12 mb-20">
-                                <input id="rememberme" type="checkbox">
-                                <label for="rememberme">I agree <a href="">Terms &amp; Condition</a></label>
                             </div>
                             <div class="col-xs-12">
                                 <input value="register" type="submit">

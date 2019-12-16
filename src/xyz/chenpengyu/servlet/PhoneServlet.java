@@ -25,6 +25,8 @@ public class PhoneServlet extends HttpServlet {
             displayPhone(request,response);
         }else if("addPhone".equals(method)){
             addPhone(request,response);
+        }else if("showPhone".equals(method)){
+            showPhone(request,response);
         }
     }
 
@@ -39,7 +41,21 @@ public class PhoneServlet extends HttpServlet {
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
 
+    private void showPhone(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String brand=request.getParameter("brand");
+        int pid= Integer.parseInt(request.getParameter("pid"));
+        String model=request.getParameter("model");
+        int stock= Integer.parseInt(request.getParameter("stock"));
+        String info= request.getParameter("info");
+        int price= Integer.parseInt(request.getParameter("price"));
+        String image=request.getParameter("image");
+        Phone phone=new Phone(brand,pid,model,stock,info,price,image);
+        request.getSession().setAttribute("SESSION_phone",phone);
+        request.getRequestDispatcher("product-details.jsp").forward(request,response);
+    }
+
     private void addPhone(HttpServletRequest request, HttpServletResponse response){
 
     }
+
 }

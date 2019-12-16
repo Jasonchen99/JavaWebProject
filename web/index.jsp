@@ -78,50 +78,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Header Cart -->
-                            <div class="header-cart float-left">
-                                <!-- Cart Toggle -->
-                                <a class="cart-toggle" href="" data-toggle="dropdown">
-                                    <i class="pe-7s-cart"></i>
-                                    <span>2</span>
-                                </a>
-                                <!-- Mini Cart Brief -->
-                                <div class="mini-cart-brief dropdown-menu text-left">
-                                    <!-- Cart Products -->
-                                    <div class="all-cart-product clearfix">
-                                        <div class="single-cart clearfix">
-                                            <div class="cart-image">
-                                                <a href="product-details.jsp"><img src="img/product/cart-1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="product-details.jsp">Le Parc Minotti Chair</a></h5>
-                                                <p>1 x £9.00</p>
-                                                <a href="" class="cart-delete" title="Remove this item"><i
-                                                        class="pe-7s-trash"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="single-cart clearfix">
-                                            <div class="cart-image">
-                                                <a href="product-details.jsp"><img src="img/product/cart-2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="product-details.jsp">DSR Eiffel chair</a></h5>
-                                                <p>1 x £9.00</p>
-                                                <a href="" class="cart-delete" title="Remove this item"><i
-                                                        class="pe-7s-trash"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Cart Total -->
-                                    <div class="cart-totals">
-                                        <h5>Total <span>£12.00</span></h5>
-                                    </div>
-                                    <!-- Cart Button -->
-                                    <div class="cart-bottom  clearfix">
-                                        <a href="checkout.jsp">Check out</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <nav class="main-menu menu-right float-right">
                             <ul>
@@ -266,15 +222,7 @@
                             <!-- Product Image -->
                             <div class="product-img">
                                 <!-- Image -->
-                                <a class="image" href="product-details.jsp"><img src="${p.image}" alt=""></a>
-                                <!-- Wishlist Button -->
-                                <a class="wishlist" href="" title="Wishlist"><i class="pe-7s-like"></i></a>
-                                <!-- Action Button -->
-                                <div class="action-btn fix">
-                                    <a href="" data-toggle="modal" data-target="#quickViewModal" title="Quick View"><i
-                                            class="pe-7s-look"></i>Quick view</a>
-                                    <a href="" title="Add to Cart"><i class="pe-7s-cart"></i>add to cart</a>
-                                </div>
+                                <a class="image" href="PhoneServlet?method=showPhone&brand=${p.brand}&model=${p.model}&pid=${p.pid}&stock=${p.stock}&info=${p.info}&price=${p.price}&image=${p.image}"><img src="${p.image}" alt=""></a>
                             </div>
                             <!-- Portfolio Info -->
                             <div class="product-info text-left">

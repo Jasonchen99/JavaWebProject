@@ -79,50 +79,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Header Cart -->
-                            <div class="header-cart float-left">
-                                <!-- Cart Toggle -->
-                                <a class="cart-toggle" href="" data-toggle="dropdown">
-                                    <i class="pe-7s-cart"></i>
-                                    <span>2</span>
-                                </a>
-                                <!-- Mini Cart Brief -->
-                                <div class="mini-cart-brief dropdown-menu text-left">
-                                    <!-- Cart Products -->
-                                    <div class="all-cart-product clearfix">
-                                        <div class="single-cart clearfix">
-                                            <div class="cart-image">
-                                                <a href="product-details.jsp"><img src="img/product/cart-1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="product-details.jsp">Le Parc Minotti Chair</a></h5>
-                                                <p>1 x £9.00</p>
-                                                <a href="" class="cart-delete" title="Remove this item"><i
-                                                        class="pe-7s-trash"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="single-cart clearfix">
-                                            <div class="cart-image">
-                                                <a href="product-details.jsp"><img src="img/product/cart-2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="product-details.jsp">DSR Eiffel chair</a></h5>
-                                                <p>1 x £9.00</p>
-                                                <a href="" class="cart-delete" title="Remove this item"><i
-                                                        class="pe-7s-trash"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Cart Total -->
-                                    <div class="cart-totals">
-                                        <h5>Total <span>£12.00</span></h5>
-                                    </div>
-                                    <!-- Cart Button -->
-                                    <div class="cart-bottom  clearfix">
-                                        <a href="checkout.jsp">Check out</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <nav class="main-menu menu-right float-right">
                             <ul>

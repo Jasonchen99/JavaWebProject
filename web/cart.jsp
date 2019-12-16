@@ -78,50 +78,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Header Cart -->
-                            <div class="header-cart float-left">
-                                <!-- Cart Toggle -->
-                                <a class="cart-toggle" href="" data-toggle="dropdown">
-                                    <i class="pe-7s-cart"></i>
-                                    <span>2</span>
-                                </a>
-                                <!-- Mini Cart Brief -->
-                                <div class="mini-cart-brief dropdown-menu text-left">
-                                    <!-- Cart Products -->
-                                    <div class="all-cart-product clearfix">
-                                        <div class="single-cart clearfix">
-                                            <div class="cart-image">
-                                                <a href="product-details.jsp"><img src="img/product/cart-1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="product-details.jsp">Le Parc Minotti Chair</a></h5>
-                                                <p>1 x £9.00</p>
-                                                <a href="" class="cart-delete" title="Remove this item"><i
-                                                        class="pe-7s-trash"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="single-cart clearfix">
-                                            <div class="cart-image">
-                                                <a href="product-details.jsp"><img src="img/product/cart-2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="product-details.jsp">DSR Eiffel chair</a></h5>
-                                                <p>1 x £9.00</p>
-                                                <a href="" class="cart-delete" title="Remove this item"><i
-                                                        class="pe-7s-trash"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Cart Total -->
-                                    <div class="cart-totals">
-                                        <h5>Total <span>£12.00</span></h5>
-                                    </div>
-                                    <!-- Cart Button -->
-                                    <div class="cart-bottom  clearfix">
-                                        <a href="checkout.jsp">Check out</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <nav class="main-menu menu-right float-right">
                             <ul>
@@ -135,7 +91,8 @@
                 </div>
             </div>
         </div>
-    </header><!-- END HEADER SECTION -->
+    </header>
+    <!-- END HEADER SECTION -->
 
 <!-- PAGE BANNER SECTION -->
 <div class="page-banner-section section">
@@ -173,22 +130,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${sessionScope.SESSION_cart.cartItems}" var="ci">
                                 <tr>
-                                    <td class="pro-thumbnail"><a href=""><img src="img/product/1.jpg" alt=""></a></td>
-                                    <td class="pro-title"><a href="">Le Parc Minotti Chair</a></td>
-                                    <td class="pro-price"><span class="amount">$169.00</span></td>
-                                    <td class="pro-quantity"><div class="product-quantity"><input type="text" value="1"></div></td>
-                                    <td class="pro-subtotal">$169.00</td>
-                                    <td class="pro-remove"><a href="">×</a></td>
+                                    <td class="pro-thumbnail"><a href=""><img src="${ci.phone.image}" alt=""></a></td>
+                                    <td class="pro-title"><a href="">${ci.phone.brand} ${ci.phone.model}</a></td>
+                                    <td class="pro-price"><span class="amount">￥${ci.phone.price}</span></td>
+                                    <td class="pro-quantity"><span class="amount">${ci.num}</span></td>
+                                    <td class="pro-subtotal">${ci.subtotal}</td>
+                                    <td class="pro-remove"><a href="CartServlet?method=removeFromCart&pid=${ci.phone.pid}">×</a></td>
                                 </tr>
-                                <tr>
-                                    <td class="pro-thumbnail"><a href=""><img src="img/product/2.jpg" alt=""></a></td>
-                                    <td class="pro-title"><a href="">DSR Eiffel chair</a></td>
-                                    <td class="pro-price"><span class="amount">$137.00</span></td>
-                                    <td class="pro-quantity"><div class="product-quantity"><input type="text" value="1"></div></td>
-                                    <td class="pro-subtotal">$137.00</td>
-                                    <td class="pro-remove"><a href="">×</a></td>
-                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -212,18 +163,18 @@
                             <tbody>
                                 <tr class="cart-subtotal">
                                     <th>Subtotal</th>
-                                    <td><span class="amount">$306.00</span></td>
+                                    <td><span class="amount">￥${sessionScope.SESSION_cart.total}</span></td>
                                 </tr>
                                 <tr class="order-total">
                                     <th>Total</th>
                                     <td>
-                                        <strong><span class="amount">$306.00</span></strong>
+                                        <strong><span class="amount">￥${sessionScope.SESSION_cart.total}</span></strong>
                                     </td>
                                 </tr>											
                             </tbody>
                         </table>
                         <div class="proceed-to-checkout section mt-30">
-                            <a href="">Proceed to Checkout</a>
+                            <a href="checkout.jsp">Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>

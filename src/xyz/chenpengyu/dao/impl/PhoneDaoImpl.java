@@ -47,4 +47,30 @@ public class PhoneDaoImpl implements PhoneDao {
         }
         return list;
     }
+
+    @Override
+    public Phone getPhone(int pid) {
+        Phone phone=new Phone();
+        String sql="select bname,pid,model,stock,info,price,image from phone,brand where phone.bid=brand.bid and phone.pid=?";
+        connection= JDBCUtil.getConnection();
+        try {
+            pstmt=connection.prepareStatement(sql);
+            pstmt.setInt(1,pid);
+            rs=pstmt.executeQuery();
+            if (rs.next()){
+                phone.setBrand(rs.getString("bname"));
+                phone.setPid(rs.getInt("pid"));
+                phone.setModel(rs.getString("model"));
+                phone.setStock(rs.getInt("stock"));
+                phone.setInfo(rs.getString("info"));
+                phone.setPrice(rs.getInt("price"));
+                phone.setImage(rs.getString("image"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeAll(connection,rs,pstmt);
+        }
+        return phone;
+    }
 }

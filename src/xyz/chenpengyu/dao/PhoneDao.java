@@ -10,4 +10,5 @@ import java.util.List;
 public interface PhoneDao {
     public int addPhone(Phone phone);
     public List<Phone> displayPhone();
+    public Phone getPhone(int pid);
 }
