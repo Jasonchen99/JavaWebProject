@@ -81,7 +81,7 @@
                         </div>
                         <nav class="main-menu menu-right float-right">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="PhoneServlet?method=displayPhone">Home</a></li>
                                 <li><a href="cart.jsp">Cart</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>
@@ -130,6 +130,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:if test="${empty sessionScope.SESSION_cart || empty sessionScope.SESSION_cart.cartItems}">
+                                <h3>购物车空空如也,请先去逛逛吧~~~~~~~~</h3>
+                            </c:if>
                             <c:forEach items="${sessionScope.SESSION_cart.cartItems}" var="ci">
                                 <tr>
                                     <td class="pro-thumbnail"><a href=""><img src="${ci.phone.image}" alt=""></a></td>
@@ -146,14 +149,7 @@
                 </div>
                 <div class="col-md-8 col-sm-7 col-xs-12">
                     <div class="cart-buttons mb-30">
-                        <input type="submit" value="Update Cart">
-                        <a href="">Continue Shopping</a>
-                    </div>
-                    <div class="cart-coupon mb-40">
-                        <h4>Coupon</h4>
-                        <p>Enter your coupon code if you have one.</p>
-                        <input type="text" placeholder="Coupon code">
-                        <input type="submit" value="Apply Coupon">
+                        <a href="CartServlet?method=clearCart">Clear Cart</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-5 col-xs-12">
@@ -174,7 +170,7 @@
                             </tbody>
                         </table>
                         <div class="proceed-to-checkout section mt-30">
-                            <a href="checkout.jsp">Proceed to Checkout</a>
+                            <a href="OrderServlet?method=save">Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>
@@ -220,7 +216,7 @@
 			<!-- Footer Widget -->
 			<div class="footer-widget col-md-3 col-sm-6 col-xs-12 mb-40">
 				<h5 class="widget-title">SIGN UP FOR OUR AWESOME NEWS</h5>
-				<form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="sunscribe-form validate" target="_blank" novalidate="">
+				<form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="sunscribe-form validate" target="_blank" novalidate="">
                     <div id="mc_embed_signup_scroll">
                         <label for="mce-EMAIL" class="hidden">Subscribe to our mailing list</label>
                         <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required="">

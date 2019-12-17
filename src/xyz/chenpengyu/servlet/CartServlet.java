@@ -1,5 +1,6 @@
 package xyz.chenpengyu.servlet;
 
+import sun.management.MethodInfo;
 import xyz.chenpengyu.bean.Cart;
 import xyz.chenpengyu.bean.CartItem;
 import xyz.chenpengyu.bean.Phone;
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -28,6 +30,8 @@ public class CartServlet extends HttpServlet {
             add2cart(request,response);
         }else if ("removeFromCart".equals(method)){
             removeFromCart(request,response);
+        }else if("clearCart".equals(method)){
+            clearCart(request,response);
         }
     }
 
@@ -61,4 +65,10 @@ public class CartServlet extends HttpServlet {
         getCart(request).removeFromCart(pid);
         request.getRequestDispatcher("cart.jsp").forward(request,response);
     }
+
+    private void clearCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        getCart(request).clearCart();
+        request.getRequestDispatcher("cart.jsp").forward(request,response);
+    }
+
 }
