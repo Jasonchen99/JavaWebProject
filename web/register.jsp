@@ -103,7 +103,7 @@
                     <h1>Register page</h1>
                     <ul class="breadcrumb">
                         <li><a href="">Home</a></li>
-                        <li class="active">Register page</li>
+                        <li class="active">Register Page</li>
                     </ul>
                 </div>
             </div>
