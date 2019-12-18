@@ -72,8 +72,7 @@
                                                 <li><a href="register.jsp">Register</a></li>
                                             </c:if>
                                             <li><a href="myaccount.jsp">My Account</a></li>
-                                            <li><a href="myorder.jsp">My Order</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>
+                                            <li><a href="OrderServlet?method=findMyOrder&pageNumber=1">My Order</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -91,8 +90,7 @@
                 </div>
             </div>
         </div>
-    </header>
-    <!-- END HEADER SECTION -->
+    </header>    <!-- END HEADER SECTION -->
 
     <!-- PAGE BANNER SECTION -->
     <div class="page-banner-section section">
@@ -115,9 +113,11 @@
     <div class="page-section section pt-120 pb-80">
         <div class="container">
             <div class="row">
-                <form action="#">
-                <div class="checkout-form">
-                    <div class="col-lg-6 col-md-6 mb-40">
+                <form action="OrderServlet" method="post">
+                    <input type="hidden" name="method" value="checkOut">
+                    <input type="hidden" name="oid" value="${order.oid}">
+                    <div class="checkout-form">
+                        <div class="col-lg-6 col-md-6 mb-40">
                             <h3>Billing Details</h3>
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12 mb-30">
@@ -133,51 +133,52 @@
                                     <input id="b_phone" name="pnum" type="text" placeholder="Phone Number">
                                 </div>
                             </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xs-12 mb-40">
-                        <div class="order-wrapper">
-                            <h3>Your order</h3>
-                            <div class="order-table table-responsive mb-30">
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th class="product-name">Product</th>
-                                        <th class="product-total">Total</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach items="${order.items}" var="oi">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-xs-12 mb-40">
+                            <div class="order-wrapper">
+                                <h3>Your order</h3>
+                                <div class="order-table table-responsive mb-30">
+                                    <table>
+                                        <thead>
                                         <tr>
-                                            <td class="product-name">
-                                                ${oi.phone.brand} ${oi.phone.model}<strong class="product-qty"> × ${oi.num}</strong>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="amount">￥${oi.phone.price}</span>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-total">Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${order.items}" var="oi">
+                                            <tr>
+                                                <td class="product-name">
+                                                        ${oi.phone.brand} ${oi.phone.model}<strong class="product-qty">
+                                                    × ${oi.num}</strong>
+                                                </td>
+                                                <td class="product-total">
+                                                    <span class="amount">￥${oi.phone.price}</span>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Cart Subtotal</th>
+                                            <td>${order.total}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Order Total</th>
+                                            <td><strong>${order.total}</strong>
                                             </td>
                                         </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>Cart Subtotal</th>
-                                        <td>${order.total}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Order Total</th>
-                                        <td><strong>${order.total}</strong>
-                                        </td>
-                                    </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <div class="payment-method">
-                                <div class="order-button">
-                                    <input type="submit" value="Place order">
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="order-button">
+                                        <input type="submit" value="Place order">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>

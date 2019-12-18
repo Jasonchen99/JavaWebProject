@@ -72,8 +72,7 @@
                                                 <li><a href="register.jsp">Register</a></li>
                                             </c:if>
                                             <li><a href="myaccount.jsp">My Account</a></li>
-                                            <li><a href="myorder.jsp">My Order</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>
+                                            <li><a href="OrderServlet?method=findMyOrder&pageNumber=1">My Order</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -91,8 +90,7 @@
                 </div>
             </div>
         </div>
-    </header>
-    <!-- END HEADER SECTION -->
+    </header>    <!-- END HEADER SECTION -->
 
     <!-- PAGE BANNER SECTION -->
     <div class="page-banner-section section">
@@ -114,7 +112,7 @@
 
     <!-- PAGE SECTION START -->
     <div class="page-section section pt-120 pb-120">
-        <c:set var="p" value="${sessionScope.SESSION_phone}"/>
+        <c:set var="p" value="${phone}"/>
         <div class="container">
             <div class="row mb-40">
                 <!-- Single Product Images -->

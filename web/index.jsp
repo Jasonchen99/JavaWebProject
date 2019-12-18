@@ -72,8 +72,7 @@
                                             <li><a href="register.jsp">Register</a></li>
                                         </c:if>
                                             <li><a href="myaccount.jsp">My Account</a></li>
-                                            <li><a href="myorder.jsp">My Order</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>
+                                            <li><a href="OrderServlet?method=findMyOrder&pageNumber=1">My Order</a></li>
                                         </ul>
                                     </li>
                                 </ul>

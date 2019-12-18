@@ -107,4 +107,14 @@ public class Order {
     public void setItems(List<OrderItem> items) {
         this.items = items;
     }
+
+    public Order() {}
+
+    public Order(int oid, int state, String address, String name, String pnum) {
+        this.oid = oid;
+        this.state = state;
+        this.address = address;
+        this.name = name;
+        this.pnum = pnum;
+    }
 }

@@ -72,8 +72,7 @@
                                                 <li><a href="register.jsp">Register</a></li>
                                             </c:if>
                                             <li><a href="myaccount.jsp">My Account</a></li>
-                                            <li><a href="myorder.jsp">My Order</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>
+                                            <li><a href="OrderServlet?method=findMyOrder&pageNumber=1">My Order</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -81,7 +80,7 @@
                         </div>
                         <nav class="main-menu menu-right float-right">
                             <ul>
-                                <li><a href="PhoneServlet?method=displayPhone">Home</a></li>
+                                <li><a href="index.jsp">Home</a></li>
                                 <li><a href="cart.jsp">Cart</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>
@@ -91,8 +90,7 @@
                 </div>
             </div>
         </div>
-    </header>
-    <!-- END HEADER SECTION -->
+    </header>    <!-- END HEADER SECTION -->
 
 <!-- PAGE BANNER SECTION -->
 <div class="page-banner-section section">

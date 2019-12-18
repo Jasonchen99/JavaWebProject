@@ -1,5 +1,7 @@
 package xyz.chenpengyu.dao.impl;
 
+import xyz.chenpengyu.bean.Order;
+import xyz.chenpengyu.bean.OrderItem;
 import xyz.chenpengyu.bean.Phone;
 import xyz.chenpengyu.bean.User;
 import xyz.chenpengyu.dao.PhoneDao;
@@ -57,7 +59,7 @@ public class PhoneDaoImpl implements PhoneDao {
             pstmt=connection.prepareStatement(sql);
             pstmt.setInt(1,pid);
             rs=pstmt.executeQuery();
-            if (rs.next()){
+            while (rs.next()){
                 phone.setBrand(rs.getString("bname"));
                 phone.setPid(rs.getInt("pid"));
                 phone.setModel(rs.getString("model"));
@@ -72,5 +74,26 @@ public class PhoneDaoImpl implements PhoneDao {
             JDBCUtil.closeAll(connection,rs,pstmt);
         }
         return phone;
+    }
+
+    @Override
+    public void decreasePhone(Order order) {
+        //手机库存减少
+        for (OrderItem oi:order.getItems()) {
+            int pid = oi.getPhone().getPid();
+            int num = oi.getNum();
+            String sql = "update phone set stock=stock-? where pid=?";
+            connection = JDBCUtil.getConnection();
+            try {
+                pstmt = connection.prepareStatement(sql);
+                pstmt.setInt(1, num);
+                pstmt.setInt(2, pid);
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                JDBCUtil.closeAll(connection, rs, pstmt);
+            }
+        }
     }
 }

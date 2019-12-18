@@ -50,7 +50,7 @@ public class PhoneServlet extends HttpServlet {
         int price= Integer.parseInt(request.getParameter("price"));
         String image=request.getParameter("image");
         Phone phone=new Phone(brand,pid,model,stock,info,price,image);
-        request.getSession().setAttribute("SESSION_phone",phone);
+        request.setAttribute("phone",phone);
         request.getRequestDispatcher("product-details.jsp").forward(request,response);
     }
 

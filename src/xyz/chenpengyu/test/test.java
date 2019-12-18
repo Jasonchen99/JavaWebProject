@@ -1,6 +1,7 @@
 package xyz.chenpengyu.test;
 
 import xyz.chenpengyu.bean.Order;
+import xyz.chenpengyu.bean.OrderItem;
 import xyz.chenpengyu.bean.Phone;
 import xyz.chenpengyu.bean.User;
 import xyz.chenpengyu.dao.OrderDao;
@@ -17,14 +18,16 @@ import java.util.List;
 public class test {
     public static void main(String[] args) {
         OrderDao orderDao=new OrderDaoImpl();
-        Order order=new Order();
-        order.setOid(111);
-        order.setBtime(new Date());
-        order.setTotal(1000);
-        order.setState(0);
-        User user=new User();
-        user.setUid(975);
-        order.setUser(user);
-        orderDao.saveOrder(order);
+        List<Order> orderList=orderDao.findMyOrder(934);
+        for (Order order:orderList){
+            System.out.println(order.getOid());
+
+            System.out.println("---------------");
+        }
+        /*List<OrderItem> orderItemList=orderDao.findMyOrderItem(382639076);
+        for (OrderItem orderItem:orderItemList){
+            System.out.println(orderItem.getNum());
+            System.out.println("---------------");
+        }*/
     }
 }
