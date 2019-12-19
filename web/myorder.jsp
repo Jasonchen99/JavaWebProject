@@ -119,7 +119,7 @@
                         <input type="hidden" name="oid" value="${o.oid}">
                         <div class="col-xs-12">
                             <div class="wishlist-table table-responsive mb-40">
-                                订单ID${o.oid}                       下单时间${o.btime}
+                                订单ID${o.oid} 下单时间${o.btime} 发货时间${o.dtime} 完成时间${o.ctime}
                                 <c:if test="${o.state==1}">已付款，等待卖家发货</c:if>
                                 <c:if test="${o.state==2}">卖家已发货</c:if>
                                 <c:if test="${o.state==3}">订单完成</c:if>

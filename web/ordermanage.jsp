@@ -25,7 +25,7 @@
                     <c:forEach items="${orderList}" var="o">
                         <form class="am-form" action="OrderServlet" method="post">
                             <input type="hidden" name="method" value="deliver">
-                            <input type="text" name="oid" value="${o.oid}">
+                            <input type="hidden" name="oid" value="${o.oid}">
                             <div class="am-u-sm-12">
                                 <table class="am-table am-table-striped am-table-hover table-main">
                                     <thead>
@@ -75,6 +75,8 @@
                                     </tbody>
                                 </table>
                             </div>
+                            下单时间${o.btime} 发货时间${o.dtime} 完成时间${o.ctime}
+                            <br>
                                 ${o.name} ${o.address} ${o.pnum} 总金额：${o.total}
                             <c:if test="${o.state==1}">
                                 <button type="submit" class="am-btn am-btn-default am-btn-xs amt-hide-sm-only"

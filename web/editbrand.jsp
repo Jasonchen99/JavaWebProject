@@ -9,8 +9,19 @@
 <html>
 <head>
     <title>Title</title>
+    <script language="JavaScript">
+        if (window != top)
+            top.location.href = location.href;
+    </script>
 </head>
 <body>
-修改品牌
+<form action="BrandServlet" method="post">
+    <input type="hidden" name="method" value="modifyBrand">
+    品牌ID：<input type="text" name="bid" readonly value="${brand.bid}">
+    <br>
+    品牌名：<input type="text"name="bname" value="${brand.bname}">
+    <br>
+    <input type="submit" value="修改">
+</form>
 </body>
 </html>

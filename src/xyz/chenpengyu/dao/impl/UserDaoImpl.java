@@ -94,4 +94,39 @@ public class UserDaoImpl implements UserDao {
         }
         return list;
     }
+
+    @Override
+    public void deleteUser(int uid) {
+        String sql="delete from user where uid=?";
+        connection= JDBCUtil.getConnection();
+        try {
+            pstmt=connection.prepareStatement(sql);
+            pstmt.setInt(1,uid);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeAll(connection,rs,pstmt);
+        }
+    }
+
+    @Override
+    public void modifyUser(User user) {
+        String sql = "update user set username=?,password=?,email=?,sex=?,pnum=?  where uid=?";
+        connection = JDBCUtil.getConnection();
+        try {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1,user.getUsername());
+            pstmt.setString(2,user.getPassword());
+            pstmt.setString(3,user.getEmail());
+            pstmt.setInt(4,user.getSex());
+            pstmt.setString(5,user.getPnum());
+            pstmt.setInt(6,user.getUid());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.closeAll(connection, rs, pstmt);
+        }
+    }
 }

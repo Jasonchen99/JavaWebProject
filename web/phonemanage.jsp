@@ -65,29 +65,31 @@
                                 </thead>
                                 <tbody id="tUser">
                                 <c:forEach items="${phoneList}" var="p">
-                                <tr>
-                                    <td>${p.pid}</td>
-                                    <td>${p.brand}</td>
-                                    <td>${p.model}</td>
-                                    <td>${p.stock}</td>
-                                    <td>${p.info}</td>
-                                    <td>${p.price}</td>
-                                    <td>${p.image}</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
+                                    <tr>
+                                        <td>${p.pid}</td>
+                                        <td>${p.brand}</td>
+                                        <td>${p.model}</td>
+                                        <td>${p.stock}</td>
+                                        <td>${p.info}</td>
+                                        <td>${p.price}</td>
+                                        <td>${p.image}</td>
+                                        <td>
+                                            <div class="am-btn-toolbar">
+                                                <div class="am-btn-group am-btn-group-xs">
+                                                    <button type="button"
+                                                            class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
+                                                        <span class="am-icon-pencil-square-o"></span>
+                                                        <a href="PhoneServlet?method=display1Phone&pid=${p.pid}&bid=${p.bid}&model=${p.model}&stock=${p.stock}&info=${p.info}&price=${p.price}&image=${p.image}">编辑</a>
+                                                    </button>
+                                                    <button type="button"
+                                                            class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
+                                                            onclick="delUser(1,1)"><span class="am-icon-trash-o"></span>
+                                                        <a href="PhoneServlet?method=deletePhone&pid=${p.pid}">删除</a>
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
@@ -121,16 +123,6 @@
                 iframeWidth: 800,
                 iframeHeight: 600,
             });
-        });
-
-        $(".btnEdit").click(function () {
-            $.jq_Panel({
-                title: "编辑手机",
-                url: "editphone.jsp",
-                iframeWidth: 800,
-                iframeHeight: 600,
-            });
-
         });
 
     });

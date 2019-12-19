@@ -13,4 +13,6 @@ public interface PhoneDao {
     public List<Phone> displayPhone();
     public Phone getPhone(int pid);
     public void decreasePhone(Order order);
+    public void deletePhone(int pid);
+    public void modifyPhone(Phone phone);
 }

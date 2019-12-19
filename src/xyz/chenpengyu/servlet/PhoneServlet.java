@@ -1,5 +1,6 @@
 package xyz.chenpengyu.servlet;
 
+import xyz.chenpengyu.bean.Brand;
 import xyz.chenpengyu.bean.Phone;
 import xyz.chenpengyu.dao.PhoneDao;
 import xyz.chenpengyu.dao.impl.PhoneDaoImpl;
@@ -30,6 +31,12 @@ public class PhoneServlet extends HttpServlet {
             showPhone(request,response);
         }else if("displayPhone2".equals(method)){
             displayPhone2(request,response);
+        }else if("deletePhone".equals(method)){
+            deletePhone(request,response);
+        }else if("modifyPhone".equals(method)){
+            modifyPhone(request,response);
+        }else if("display1Phone".equals(method)){
+            display1Phone(request,response);
         }
     }
 
@@ -83,4 +90,34 @@ public class PhoneServlet extends HttpServlet {
         request.getRequestDispatcher("phonemanage.jsp").forward(request,response);
     }
 
+    private void deletePhone(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pid= Integer.parseInt(request.getParameter("pid"));
+        phoneDao.deletePhone(pid);
+        displayPhone2(request,response);
+    }
+
+    private void modifyPhone(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int bid= Integer.parseInt(request.getParameter("bid"));
+        int pid= Integer.parseInt(request.getParameter("pid"));
+        String model=request.getParameter("model");
+        int stock= Integer.parseInt(request.getParameter("stock"));
+        String info= request.getParameter("info");
+        int price= Integer.parseInt(request.getParameter("price"));
+        String image=request.getParameter("image");
+        Phone phone=new Phone(pid,model,stock,info,price,image,bid);
+        phoneDao.modifyPhone(phone);
+        request.getRequestDispatcher("admin.jsp").forward(request,response);
+    }
+    private void display1Phone(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int bid= Integer.parseInt(request.getParameter("bid"));
+        int pid= Integer.parseInt(request.getParameter("pid"));
+        String model=request.getParameter("model");
+        int stock= Integer.parseInt(request.getParameter("stock"));
+        String info= request.getParameter("info");
+        int price= Integer.parseInt(request.getParameter("price"));
+        String image=request.getParameter("image");
+        Phone phone=new Phone(pid,model,stock,info,price,image,bid);
+        request.setAttribute("phone",phone);
+        request.getRequestDispatcher("editphone.jsp").forward(request,response);
+    }
 }

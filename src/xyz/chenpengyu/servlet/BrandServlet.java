@@ -26,6 +26,12 @@ public class BrandServlet extends HttpServlet {
             displayBrand(request,response);
         }else if ("addBrand".equals(method)){
             addBrand(request,response);
+        }else if ("deleteBrand".equals(method)){
+            deleteBrand(request,response);
+        }else if ("display1Brand".equals(method)){
+            display1Brand(request,response);
+        }else if ("modifyBrand".equals(method)){
+            modifyBrand(request,response);
         }
     }
 
@@ -51,5 +57,23 @@ public class BrandServlet extends HttpServlet {
         out.println("window.location='brandmanage.jsp';");
         out.println("</script>");
         request.getRequestDispatcher("brandmanage.jsp").forward(request,response);
+    }
+
+    private void deleteBrand(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int bid= Integer.parseInt(request.getParameter("bid"));
+        brandDao.deleteBrand(bid);
+        displayBrand(request,response);
+    }
+    private void display1Brand(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int bid= Integer.parseInt(request.getParameter("bid"));
+        String bname=request.getParameter("bname");
+        request.setAttribute("brand",new Brand(bid,bname));
+        request.getRequestDispatcher("editbrand.jsp").forward(request,response);
+    }
+    private void modifyBrand(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int bid= Integer.parseInt(request.getParameter("bid"));
+        String bname=request.getParameter("bname");
+        brandDao.modifyBrand(new Brand(bid,bname));
+        request.getRequestDispatcher("admin.jsp").forward(request,response);
     }
 }

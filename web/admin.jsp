@@ -74,7 +74,7 @@
                             class="am-icon-angle-right am-fr am-margin-right"></span> </a>
 
                 </li>
-                <li class="admin-parent">
+                <%--<li class="admin-parent">
                     <a class="am-cf" href="charts-1.jsp" target="right"><span class="am-icon-file"></span> 统计报表<span
                             class="am-icon-angle-right am-fr am-margin-right"></span> </a>
 
@@ -82,7 +82,7 @@
                 <li class="admin-parent">
                     <a class="am-cf" href="updatePwd.jsp" target="right"><span class="am-icon-file"></span> 修改密码<span
                             class="am-icon-angle-right am-fr am-margin-right"></span> </a>
-                </li>
+                </li>--%>
                 </li>
             </ul>
         </div>

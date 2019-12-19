@@ -68,7 +68,7 @@
                                                     <button type="button"
                                                             class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
                                                             onclick="delUser(1,1)"><span class="am-icon-trash-o"></span>
-                                                        删除
+                                                        <a href="UserServlet?method=deleteUser&uid=${u.uid}">删除</a>
                                                     </button>
                                                 </div>
                                             </div>

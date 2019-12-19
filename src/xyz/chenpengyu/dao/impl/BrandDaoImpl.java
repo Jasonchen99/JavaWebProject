@@ -53,4 +53,35 @@ public class BrandDaoImpl implements BrandDao {
             JDBCUtil.closeAll(connection,rs,pstmt);
         }
     }
+
+    @Override
+    public void deleteBrand(int bid) {
+        String sql="delete from brand where bid=?";
+        connection= JDBCUtil.getConnection();
+        try {
+            pstmt=connection.prepareStatement(sql);
+            pstmt.setInt(1,bid);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeAll(connection,rs,pstmt);
+        }
+    }
+
+    @Override
+    public void modifyBrand(Brand brand) {
+        String sql = "update brand set bname=? where bid=?";
+        connection = JDBCUtil.getConnection();
+        try {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1, brand.getBname());
+            pstmt.setInt(2, brand.getBid());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.closeAll(connection, rs, pstmt);
+        }
+    }
 }

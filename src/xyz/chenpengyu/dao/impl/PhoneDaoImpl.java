@@ -1,5 +1,6 @@
 package xyz.chenpengyu.dao.impl;
 
+import sun.security.jca.GetInstance;
 import xyz.chenpengyu.bean.Order;
 import xyz.chenpengyu.bean.OrderItem;
 import xyz.chenpengyu.bean.Phone;
@@ -44,7 +45,7 @@ public class PhoneDaoImpl implements PhoneDao {
     @Override
     public List<Phone> displayPhone() {
         List<Phone> list =new ArrayList<>();
-        String sql="select bname,pid,model,stock,info,price,image from phone,brand where phone.bid=brand.bid";
+        String sql="select * from phone,brand where phone.bid=brand.bid";
         connection=JDBCUtil.getConnection();
         try {
             pstmt=connection.prepareStatement(sql);
@@ -58,6 +59,7 @@ public class PhoneDaoImpl implements PhoneDao {
                 phone.setInfo(rs.getString("info"));
                 phone.setPrice(rs.getInt("price"));
                 phone.setImage(rs.getString("image"));
+                phone.setBid(rs.getInt("bid"));
                 list.add(phone);
             }
         } catch (SQLException e) {
@@ -71,7 +73,7 @@ public class PhoneDaoImpl implements PhoneDao {
     @Override
     public Phone getPhone(int pid) {
         Phone phone=new Phone();
-        String sql="select bname,pid,model,stock,info,price,image from phone,brand where phone.bid=brand.bid and phone.pid=?";
+        String sql="select * from phone,brand where phone.bid=brand.bid and phone.pid=?";
         connection= JDBCUtil.getConnection();
         try {
             pstmt=connection.prepareStatement(sql);
@@ -85,6 +87,7 @@ public class PhoneDaoImpl implements PhoneDao {
                 phone.setInfo(rs.getString("info"));
                 phone.setPrice(rs.getInt("price"));
                 phone.setImage(rs.getString("image"));
+                phone.setBid(rs.getInt("bid"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -112,6 +115,42 @@ public class PhoneDaoImpl implements PhoneDao {
             } finally {
                 JDBCUtil.closeAll(connection, rs, pstmt);
             }
+        }
+    }
+
+    @Override
+    public void deletePhone(int pid) {
+        String sql="delete from phone where pid=?";
+        connection= JDBCUtil.getConnection();
+        try {
+            pstmt=connection.prepareStatement(sql);
+            pstmt.setInt(1,pid);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeAll(connection,rs,pstmt);
+        }
+    }
+
+    @Override
+    public void modifyPhone(Phone phone) {
+        String sql = "update phone set bid=?,model=?,stock=?,info=?,price=?,image=? where pid=?";
+        connection = JDBCUtil.getConnection();
+        try {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1,phone.getBid());
+            pstmt.setString(2,phone.getModel());
+            pstmt.setInt(3,phone.getStock());
+            pstmt.setString(4,phone.getInfo());
+            pstmt.setInt(5,phone.getPrice());
+            pstmt.setString(6,phone.getImage());
+            pstmt.setInt(7,phone.getPid());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.closeAll(connection, rs, pstmt);
         }
     }
 }
