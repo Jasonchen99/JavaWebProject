@@ -27,6 +27,8 @@ public class PhoneServlet extends HttpServlet {
             addPhone(request,response);
         }else if("showPhone".equals(method)){
             showPhone(request,response);
+        }else if("displayPhone2".equals(method)){
+            displayPhone2(request,response);
         }
     }
 
@@ -56,6 +58,11 @@ public class PhoneServlet extends HttpServlet {
 
     private void addPhone(HttpServletRequest request, HttpServletResponse response){
 
+    }
+    private void displayPhone2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Phone> list=phoneDao.displayPhone();
+        request.setAttribute("phoneList",list);
+        request.getRequestDispatcher("phonemanage.jsp").forward(request,response);
     }
 
 }

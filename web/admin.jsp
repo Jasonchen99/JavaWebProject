@@ -21,7 +21,7 @@
 <body>
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
-        <strong>后台</strong> <small>管理系统</small>
+        <strong>手机销售平台后台</strong> <small>管理系统</small>
     </div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
             data-am-collapse="{target: '#topbar-collapse'}">
@@ -56,16 +56,21 @@
                 <li>
                     <a href="javascript:;"><span class="am-icon-home"> 首页</span>
                 <li class="admin-parent">
-                    <a class="am-cf" href="depart.jsp" target="right"><span class="am-icon-file"></span> 品牌管理<span
+                    <a class="am-cf" href="BrandServlet?method=displayBrand" target="right"><span class="am-icon-file"></span> 品牌管理<span
                             class="am-icon-angle-right am-fr am-margin-right"></span> </a>
                 </li>
                 <li class="admin-parent">
-                    <a class="am-cf" href="ordermanage.jsp" target="right"><span class="am-icon-file"></span> 订单管理<span
+                    <a class="am-cf" href="PhoneServlet?method=displayPhone2" target="right"><span class="am-icon-file"></span> 手机管理<span
                             class="am-icon-angle-right am-fr am-margin-right"></span> </a>
 
                 </li>
                 <li class="admin-parent">
-                    <a class="am-cf" href="user.jsp" target="right"><span class="am-icon-file"></span> 用户管理<span
+                    <a class="am-cf" href="OrderServlet?method=displayOrder" target="right"><span class="am-icon-file"></span> 订单管理<span
+                            class="am-icon-angle-right am-fr am-margin-right"></span> </a>
+
+                </li>
+                <li class="admin-parent">
+                    <a class="am-cf" href="UserServlet?method=displayUser" target="right"><span class="am-icon-file"></span> 用户管理<span
                             class="am-icon-angle-right am-fr am-margin-right"></span> </a>
 
                 </li>
@@ -80,16 +85,6 @@
                 </li>
                 </li>
             </ul>
-            <div class="am-panel am-panel-default admin-sidebar-panel">
-                <div class="am-panel-bd">
-                    <p>
-                        <span class="am-icon-bookmark"></span> 公告
-                    </p>
-                    <p>欢迎使用管理系统</p>
-                </div>
-            </div>
-
-
         </div>
     </div>
     <!-- sidebar end -->
@@ -97,11 +92,9 @@
     <!-- content start -->
     <div class="admin-content">
         <div class="admin-content-body">
-            <iframe src="ordermanage.jsp" width="100%" height="1100" name="right" style="border: none;"></iframe>
+            <iframe src="BrandServlet?method=displayBrand" width="100%" height="1100" name="right" style="border: none;"></iframe>
         </div>
     </div>
-
-
 </div>
 <!-- content end -->
 

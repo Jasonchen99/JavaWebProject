@@ -21,465 +21,67 @@
         <div class="admin-content-body">
 
             <div class="container" style="padding: 50px 10px 0px 10px">
-                <div class="am-g">
-                    <div class="am-u-sm-12 am-u-md-6">
-                        <div class="am-btn-toolbar">
-                            <div class="am-btn-group am-btn-group-xs">
-                                <button type="button" class="am-btn am-btn-default btnAdd">
-                                    <span class="icon-plus"></span> 新增
-                                </button>
-
-                                <button type="button" class="am-btn am-btn-default" id="btnremove" onclick="delAll()">
-                                    <span class="icon-trash"></span> 删除
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="am-u-sm-12 am-u-md-3">
-
-                        <select id="selDepart" data-am-selected="{btnSize: 'sm'}" style="display: none;">
-                            <option value="0">
-                                请选择部门
-
-
-                            <option value="14">
-                                研发部
-
-
-                            <option value="22">
-                                市场部
-
-
-                        </select>
-                        <div class="am-selected am-dropdown " id="am-selected-dhh2q" data-am-dropdown="">
-                            <button type="button"
-                                    class="am-selected-btn am-btn am-dropdown-toggle am-btn-sm am-btn-default"><span
-                                    class="am-selected-status am-fl">请选择部门</span> <i
-                                    class="am-selected-icon am-icon-caret-down"></i></button>
-                            <div class="am-selected-content am-dropdown-content">
-                                <h2 class="am-selected-header"><span class="am-icon-chevron-left">返回</span></h2>
-                                <ul class="am-selected-list">
-                                    <li class="am-checked" data-index="0" data-group="0" data-value="0"><span
-                                            class="am-selected-text">请选择部门</span> <i class="am-icon-check"></i></li>
-                                    <li class="" data-index="1" data-group="0" data-value="14"><span
-                                            class="am-selected-text">研发部</span> <i class="am-icon-check"></i></li>
-
-                                </ul>
-                                <div class="am-selected-hint"></div>
-                            </div>
-                        </div>
-                        <div class="am-selected am-dropdown " id="am-selected-z6ofo" data-am-dropdown="">
-                            <button style="display: none;" type="button"
-                                    class="am-selected-btn am-btn am-dropdown-toggle am-btn-sm am-btn-default">
-                                <span class="am-selected-status am-fl">请选择部门</span>
-                                <i class="am-selected-icon am-icon-caret-down"></i>
-                            </button>
-                            <div class="am-selected-content am-dropdown-content">
-                                <h2 class="am-selected-header">
-                                    <span class="am-icon-chevron-left">返回</span>
-                                </h2>
-                                <ul class="am-selected-list">
-                                    <li class="am-checked" data-index="0" data-group="0" data-value="option1">
-                                        <span class="am-selected-text">请选择部门</span>
-                                        <i class="am-icon-check"></i>
-                                    </li>
-
-                                    <li class="" data-index="1" data-group="0" data-value="option2">
-                                        <span class="am-selected-text">研发部</span>
-                                        <i class="am-icon-check"></i>
-                                    </li>
-
-                                    <li class="" data-index="1" data-group="0" data-value="option2">
-                                        <span class="am-selected-text">市场部</span>
-                                        <i class="am-icon-check"></i>
-                                    </li>
-
-                                    <li class="" data-index="1" data-group="0" data-value="option2">
-                                        <span class="am-selected-text">渠道一部</span>
-                                        <i class="am-icon-check"></i>
-                                    </li>
-
-                                    <li class="" data-index="1" data-group="0" data-value="option2">
-                                        <span class="am-selected-text">教学部</span>
-                                        <i class="am-icon-check"></i>
-                                    </li>
-
-                                    <li class="" data-index="1" data-group="0" data-value="option2">
-                                        <span class="am-selected-text">教务部</span>
-                                        <i class="am-icon-check"></i>
-                                    </li>
-
-                                    <li class="" data-index="1" data-group="0" data-value="option2">
-                                        <span class="am-selected-text">渠道二部</span>
-                                        <i class="am-icon-check"></i>
-                                    </li>
-
-                                    <li class="" data-index="1" data-group="0" data-value="option2">
-                                        <span class="am-selected-text">渠道三部</span>
-                                        <i class="am-icon-check"></i>
-                                    </li>
-
-                                </ul>
-                                <div class="am-selected-hint"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="am-u-sm-12 am-u-md-3">
-                        <div class="am-input-group am-input-group-sm">
-                            <input class="am-form-field" placeholder="请输入员工姓名" id="username" type="text">
-                            <span class="am-input-group-btn">
-										<button class="am-btn am-btn-default" type="button" id="btnsearch">
-											搜索
-										</button> </span>
-                        </div>
-                    </div>
-                </div>
                 <div class="am-g" style="margin-top: -30px;">
-                    <div class="am-u-sm-12">
+                    <c:forEach items="${orderList}" var="o">
                         <form class="am-form" action="user/delAll.action">
-                            <table class="am-table am-table-striped am-table-hover table-main">
-                                <thead>
-                                <tr>
-                                    <th class="table-check">
-                                        <input id="chkAll" type="checkbox">
-                                    </th>
-                                    <th class="table-id">
-                                        ID
-                                    </th>
-                                    <th>
-                                        用户名
-                                    </th>
-                                    <th class="table-title">
-                                        姓名
-                                    </th>
-                                    <th>
-                                        性别
-                                    </th>
-                                    <th>
-                                        部门名称
-                                    </th>
-                                    <th>
-                                        邮箱
-                                    </th>
-                                    <th class="table-set">
-                                        操作
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody id="tUser">
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">张三</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>王五</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">李四</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>产品部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>开发部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><input name="ids" value="1" type="checkbox"></td>
-                                    <td>1</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="">admin</a>
-                                    </td>
-                                    <td><span class="am-badge am-badge-secondary">男</span></td>
-                                    <td>测试部</td>
-                                    <td>2332@qq.com</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">
-                                                    <span class="am-icon-pencil-square-o"></span> 编辑
-                                                </button>
-                                                <button type="button"
-                                                        class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                                        onclick="delUser(1,1)"><span class="am-icon-trash-o"></span> 删除
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-
+                            <div class="am-u-sm-12">
+                                <table class="am-table am-table-striped am-table-hover table-main">
+                                    <thead>
+                                    <tr>
+                                        <th class="table-id">
+                                            订单ID
+                                        </th>
+                                        <th>
+                                            用户id
+                                        </th>
+                                        <th class="table-title">
+                                            产品
+                                        </th>
+                                        <th>
+                                            产品单价
+                                        </th>
+                                        <th>
+                                            产品数量
+                                        </th>
+                                        <th>
+                                            小计
+                                        </th>
+                                        <th class="table-set">
+                                            订单状态
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tUser">
+                                    <c:forEach items="${o.items}" var="oi">
+                                        <tr>
+                                            <td>${o.oid}</td>
+                                            <td>${o.user.uid}</td>
+                                            <td>${oi.phone.brand} ${oi.phone.model}</td>
+                                            <td>￥${oi.phone.price}</td>
+                                            <td>${oi.num}</td>
+                                            <td>${oi.subtotal}</td>
+                                            <td>
+                                                <c:if test="${o.state==1}">已付款，等待卖家发货</c:if>
+                                                <c:if test="${o.state==2}">卖家已发货</c:if>
+                                                <c:if test="${o.state==3}">订单完成</c:if>
+                                                <c:if test="${o.state==0}">
+                                                    未付款
+                                                </c:if>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                                ${o.name} ${o.address} ${o.pnum} 总金额：${o.total}
+                            <c:if test="${o.state==1}">
+                                <button type="submit" class="am-btn am-btn-default am-btn-xs amt-hide-sm-only"
+                                        onclick="deleteDepart(27,1)">发货
+                                </button>
+                            </c:if>
                         </form>
-                    </div>
+                        <hr>
+                    </c:forEach>
                 </div>
             </div>
 

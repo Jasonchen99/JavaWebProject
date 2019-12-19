@@ -3,6 +3,7 @@ package xyz.chenpengyu.dao.impl;
 import xyz.chenpengyu.bean.Order;
 import xyz.chenpengyu.bean.OrderItem;
 import xyz.chenpengyu.bean.Phone;
+import xyz.chenpengyu.bean.User;
 import xyz.chenpengyu.dao.OrderDao;
 import xyz.chenpengyu.dao.PhoneDao;
 import xyz.chenpengyu.util.JDBCUtil;
@@ -165,5 +166,38 @@ public class OrderDaoImpl implements OrderDao {
         }finally {
             JDBCUtil.closeAll(connection,rs,pstmt);
         }
+    }
+
+    @Override
+    public List<Order> displayOrder() {
+        List<Order> orderList=new ArrayList<>();
+        String sql="select * from `order`";
+        connection= JDBCUtil.getConnection();
+        try {
+            pstmt=connection.prepareStatement(sql);
+            rs=pstmt.executeQuery();
+            while (rs.next()){
+                Order order=new Order();
+                order.setOid(rs.getInt("oid"));
+                order.setUser(new User(rs.getInt("uid")));
+                order.setTotal(rs.getInt("total"));
+                order.setBtime(rs.getDate("btime"));
+                order.setDtime(rs.getDate("dtime"));
+                order.setCtime(rs.getDate("ctime"));
+                order.setState(rs.getInt("state"));
+                order.setAddress(rs.getString("address"));
+                order.setName(rs.getString("name"));
+                order.setPnum(rs.getString("pnum"));
+                orderList.add(order);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeAll(connection,rs,pstmt);
+        }
+        for (Order order:orderList){
+            order.setItems(findMyOrderItem(order.getOid()));
+        }
+        return orderList;
     }
 }

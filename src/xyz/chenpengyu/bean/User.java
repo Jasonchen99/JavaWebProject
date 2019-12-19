@@ -12,6 +12,10 @@ public class User {
     private int sex;
     private int admin;
 
+    public User(int uid) {
+        this.uid = uid;
+    }
+
     public String getUsername() {
         return username;
     }

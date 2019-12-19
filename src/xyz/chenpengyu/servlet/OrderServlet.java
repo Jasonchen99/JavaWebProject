@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -32,6 +33,8 @@ public class OrderServlet extends HttpServlet {
             checkOut(request,response);
         }else if("changeOrderState".equals(method)){
             changeOrderState(request,response);
+        }else if("displayOrder".equals(method)){
+            displayOrder(request,response);
         }
     }
 
@@ -87,5 +90,11 @@ public class OrderServlet extends HttpServlet {
         int state= Integer.parseInt(request.getParameter("state"));
         orderDao.changeOrderState(oid,state);
         request.getRequestDispatcher("OrderServlet?method=findMyOrder").forward(request,response);
+    }
+
+    private void displayOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Order> orderList=orderDao.displayOrder();
+        request.setAttribute("orderList",orderList);
+        request.getRequestDispatcher("ordermanage.jsp").forward(request,response);
     }
 }

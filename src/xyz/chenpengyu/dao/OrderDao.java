@@ -12,4 +12,5 @@ public interface OrderDao {
     public List<Order> findMyOrder(int uid);
     public List<OrderItem> findMyOrderItem(int oid);
     public void changeOrderState(int oid,int state);
+    public List<Order> displayOrder();
 }

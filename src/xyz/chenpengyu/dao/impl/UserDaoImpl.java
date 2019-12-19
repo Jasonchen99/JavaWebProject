@@ -1,5 +1,6 @@
 package xyz.chenpengyu.dao.impl;
 
+import xyz.chenpengyu.bean.Phone;
 import xyz.chenpengyu.bean.User;
 import xyz.chenpengyu.dao.UserDao;
 import xyz.chenpengyu.util.JDBCUtil;
@@ -8,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Jason Chen
@@ -64,5 +67,31 @@ public class UserDaoImpl implements UserDao {
             JDBCUtil.closeAll(connection,rs,pstmt);
         }
         return user1;
+    }
+
+    @Override
+    public List<User> display() {
+        List<User> list =new ArrayList<>();
+        String sql="select * from user";
+        connection=JDBCUtil.getConnection();
+        try {
+            pstmt=connection.prepareStatement(sql);
+            rs=pstmt.executeQuery();
+            while(rs.next()){
+                User user=new User();
+                user.setUid(rs.getInt("uid"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setSex(rs.getInt("sex"));
+                user.setEmail(rs.getString("email"));
+                user.setPnum(rs.getString("pnum"));
+                list.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally{
+            JDBCUtil.closeAll(connection,rs,pstmt);
+        }
+        return list;
     }
 }
