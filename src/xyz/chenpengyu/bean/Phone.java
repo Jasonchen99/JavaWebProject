@@ -9,6 +9,15 @@ public class Phone {
     private int price;
     private String image;
     private int bid;
+    private int sales;
+
+    public int getSales() {
+        return sales;
+    }
+
+    public void setSales(int sales) {
+        this.sales = sales;
+    }
 
     public int getBid() {
         return bid;

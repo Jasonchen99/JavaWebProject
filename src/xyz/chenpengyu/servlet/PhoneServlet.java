@@ -37,6 +37,8 @@ public class PhoneServlet extends HttpServlet {
             modifyPhone(request,response);
         }else if("display1Phone".equals(method)){
             display1Phone(request,response);
+        }else if("displayPhoneToCharts".equals(method)){
+            displayPhoneToCharts(request,response);
         }
     }
 
@@ -59,7 +61,9 @@ public class PhoneServlet extends HttpServlet {
         String info= request.getParameter("info");
         int price= Integer.parseInt(request.getParameter("price"));
         String image=request.getParameter("image");
+        int sales= Integer.parseInt(request.getParameter("sales"));
         Phone phone=new Phone(brand,pid,model,stock,info,price,image);
+        phone.setSales(sales);
         request.setAttribute("phone",phone);
         request.getRequestDispatcher("product-details.jsp").forward(request,response);
     }
@@ -119,5 +123,11 @@ public class PhoneServlet extends HttpServlet {
         Phone phone=new Phone(pid,model,stock,info,price,image,bid);
         request.setAttribute("phone",phone);
         request.getRequestDispatcher("editphone.jsp").forward(request,response);
+    }
+
+    private void displayPhoneToCharts(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Phone> list=phoneDao.displayPhone();
+        request.setAttribute("phoneList",list);
+        request.getRequestDispatcher("echarts.jsp").forward(request,response);
     }
 }

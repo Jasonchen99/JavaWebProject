@@ -67,10 +67,10 @@
                                 <ul>
                                     <li><a href="" data-toggle="dropdown"><i class="pe-7s-config"></i></a>
                                         <ul class="dropdown-menu">
-                                        <c:if test="${sessionScope.SESSION_user==null}">
-                                            <li><a href="login.jsp">Log in</a></li>
-                                            <li><a href="register.jsp">Register</a></li>
-                                        </c:if>
+                                            <c:if test="${sessionScope.SESSION_user==null}">
+                                                <li><a href="login.jsp">Log in</a></li>
+                                                <li><a href="register.jsp">Register</a></li>
+                                            </c:if>
                                             <li><a href="myaccount.jsp">My Account</a></li>
                                             <li><a href="OrderServlet?method=findMyOrder&pageNumber=1">My Order</a></li>
                                         </ul>
@@ -148,7 +148,9 @@
                             <!-- Product Image -->
                             <div class="product-img">
                                 <!-- Image -->
-                                <a class="image" href="PhoneServlet?method=showPhone&brand=${p.brand}&model=${p.model}&pid=${p.pid}&stock=${p.stock}&info=${p.info}&price=${p.price}&image=${p.image}"><img src="${p.image}" alt=""></a>
+                                <a class="image"
+                                   href="PhoneServlet?method=showPhone&brand=${p.brand}&model=${p.model}&pid=${p.pid}&stock=${p.stock}&info=${p.info}&price=${p.price}&image=${p.image}&sales=${p.sales}"><img
+                                        src="${p.image}" alt=""></a>
                             </div>
                             <!-- Portfolio Info -->
                             <div class="product-info text-left">

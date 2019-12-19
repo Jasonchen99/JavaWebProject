@@ -60,6 +60,7 @@ public class PhoneDaoImpl implements PhoneDao {
                 phone.setPrice(rs.getInt("price"));
                 phone.setImage(rs.getString("image"));
                 phone.setBid(rs.getInt("bid"));
+                phone.setSales(rs.getInt("sales"));
                 list.add(phone);
             }
         } catch (SQLException e) {
@@ -88,6 +89,7 @@ public class PhoneDaoImpl implements PhoneDao {
                 phone.setPrice(rs.getInt("price"));
                 phone.setImage(rs.getString("image"));
                 phone.setBid(rs.getInt("bid"));
+                phone.setSales(rs.getInt("sales"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -103,12 +105,13 @@ public class PhoneDaoImpl implements PhoneDao {
         for (OrderItem oi:order.getItems()) {
             int pid = oi.getPhone().getPid();
             int num = oi.getNum();
-            String sql = "update phone set stock=stock-? where pid=?";
+            String sql = "update phone set stock=stock-?,sales=sales+? where pid=?";
             connection = JDBCUtil.getConnection();
             try {
                 pstmt = connection.prepareStatement(sql);
                 pstmt.setInt(1, num);
-                pstmt.setInt(2, pid);
+                pstmt.setInt(2, num);
+                pstmt.setInt(3, pid);
                 pstmt.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();

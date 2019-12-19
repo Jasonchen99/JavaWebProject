@@ -151,6 +151,11 @@
                             <h5 class="pd-sub-title">Inventory of Products</h5>
                             <h6>${p.stock}</h6>
                         </div>
+                        <!-- Product Color -->
+                        <div class="color-list section">
+                            <h5 class="pd-sub-title">Sale Volume of Products</h5>
+                            <h6>${p.sales}</h6>
+                        </div>
                         <!-- Quantity Cart -->
                         <form action="CartServlet" method="post">
                             <input type="hidden" name="method" value="add2cart">
