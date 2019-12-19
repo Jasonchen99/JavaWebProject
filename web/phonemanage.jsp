@@ -116,8 +116,8 @@
     $(function () {
         $(".btnAdd").click(function () {
             $.jq_Panel({
-                title: "添加用户",
-                url: "addUser.html",
+                title: "添加手机",
+                url: "addphone.jsp",
                 iframeWidth: 800,
                 iframeHeight: 600,
             });
@@ -125,8 +125,8 @@
 
         $(".btnEdit").click(function () {
             $.jq_Panel({
-                title: "编辑用户",
-                url: "addUser.html",
+                title: "编辑手机",
+                url: "editphone.jsp",
                 iframeWidth: 800,
                 iframeHeight: 600,
             });

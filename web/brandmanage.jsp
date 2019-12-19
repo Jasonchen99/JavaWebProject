@@ -89,19 +89,19 @@
 			$(function() {
 				$(".btnedit").click(function() {
 					$.jq_Panel({
-						title: "修改部门",
+						title: "修改品牌",
 						iframeWidth: 500,
 						iframeHeight: 300,
-						url: "addDepart.html"
+						url: "editbrand.jsp"
 					});
 				});
 				$(".btnAdd").click(function() {
 
 					$.jq_Panel({
-						title: "添加部门",
+						title: "添加品牌",
 						iframeWidth: 500,
 						iframeHeight: 300,
-						url: "addDepart.html"
+						url: "addbrand.jsp"
 					});
 				});
 			});

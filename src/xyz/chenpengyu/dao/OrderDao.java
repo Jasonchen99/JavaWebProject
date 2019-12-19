@@ -13,4 +13,5 @@ public interface OrderDao {
     public List<OrderItem> findMyOrderItem(int oid);
     public void changeOrderState(int oid,int state);
     public List<Order> displayOrder();
+    public void changeOrderTime(int oid,String timetype);
 }

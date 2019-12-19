@@ -82,7 +82,7 @@
                         </div>
                         <nav class="main-menu menu-right float-right">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="PhoneServlet?method=displayPhone">Home</a></li>
                                 <li><a href="cart.jsp">Cart</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>
@@ -102,7 +102,7 @@
                 <div class="page-banner-content">
                     <h1>Register page</h1>
                     <ul class="breadcrumb">
-                        <li><a href="">Home</a></li>
+                        <li><a href="PhoneServlet?method=displayPhone">Home</a></li>
                         <li class="active">Register Page</li>
                     </ul>
                 </div>

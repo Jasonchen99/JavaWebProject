@@ -80,7 +80,7 @@
                         </div>
                         <nav class="main-menu menu-right float-right">
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="PhoneServlet?method=displayPhone">Home</a></li>
                                 <li><a href="cart.jsp">Cart</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>
@@ -115,8 +115,7 @@
             <div class="row">
                 <c:forEach items="${sessionScope.SESSION_orderList}" var="o">
                     <form action="OrderServlet">
-                        <input type="hidden" name="method" value="changeOrderState">
-                        <input type="hidden" name="state" value="3">
+                        <input type="hidden" name="method" value="confirmOrder">
                         <input type="hidden" name="oid" value="${o.oid}">
                         <div class="col-xs-12">
                             <div class="wishlist-table table-responsive mb-40">

@@ -8,8 +8,27 @@ public class Phone {
     private String info;
     private int price;
     private String image;
+    private int bid;
+
+    public int getBid() {
+        return bid;
+    }
+
+    public void setBid(int bid) {
+        this.bid = bid;
+    }
 
     public Phone() {}
+
+    public Phone(int pid, String model, int stock, String info, int price, String image, int bid) {
+        this.pid = pid;
+        this.model = model;
+        this.stock = stock;
+        this.info = info;
+        this.price = price;
+        this.image = image;
+        this.bid = bid;
+    }
 
     public Phone(String brand, int pid, String model, int stock, String info, int price, String image) {
         this.brand = brand;

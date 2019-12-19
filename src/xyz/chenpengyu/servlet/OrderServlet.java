@@ -31,10 +31,12 @@ public class OrderServlet extends HttpServlet {
             findMyOrder(request,response);
         }else if("checkOut".equals(method)){
             checkOut(request,response);
-        }else if("changeOrderState".equals(method)){
-            changeOrderState(request,response);
+        }else if("confirmOrder".equals(method)){
+            confirmOrder(request,response);
         }else if("displayOrder".equals(method)){
             displayOrder(request,response);
+        }else if("deliver".equals(method)){
+            deliver(request,response);
         }
     }
 
@@ -85,10 +87,10 @@ public class OrderServlet extends HttpServlet {
         request.getRequestDispatcher("cart.jsp").forward(request,response);
     }
 
-    private void changeOrderState(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void confirmOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int oid= Integer.parseInt(request.getParameter("oid"));
-        int state= Integer.parseInt(request.getParameter("state"));
-        orderDao.changeOrderState(oid,state);
+        orderDao.changeOrderState(oid,3);
+        orderDao.changeOrderTime(oid,"ctime");
         request.getRequestDispatcher("OrderServlet?method=findMyOrder").forward(request,response);
     }
 
@@ -96,5 +98,13 @@ public class OrderServlet extends HttpServlet {
         List<Order> orderList=orderDao.displayOrder();
         request.setAttribute("orderList",orderList);
         request.getRequestDispatcher("ordermanage.jsp").forward(request,response);
+    }
+
+    private void deliver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int oid= Integer.parseInt(request.getParameter("oid"));
+        orderDao.changeOrderState(oid,2);
+        orderDao.changeOrderTime(oid,"dtime");
+        displayOrder(request,response);
+
     }
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "PhoneServlet", urlPatterns = "/PhoneServlet")
@@ -56,8 +57,25 @@ public class PhoneServlet extends HttpServlet {
         request.getRequestDispatcher("product-details.jsp").forward(request,response);
     }
 
-    private void addPhone(HttpServletRequest request, HttpServletResponse response){
-
+    private void addPhone(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        PrintWriter out=response.getWriter();
+        int bid= Integer.parseInt(request.getParameter("bid"));
+        int pid= Integer.parseInt(request.getParameter("pid"));
+        String model=request.getParameter("model");
+        int stock= Integer.parseInt(request.getParameter("stock"));
+        String info= request.getParameter("info");
+        int price= Integer.parseInt(request.getParameter("price"));
+        String image=request.getParameter("image");
+        Phone phone=new Phone(pid,model,stock,info,price,image,bid);
+        int count=phoneDao.addPhone(phone);
+        if (count>0){
+            request.getRequestDispatcher("phonemanage.jsp").forward(request,response);
+        }else {
+            out.println("<script type='text/javascript'>");
+            out.println("alert('add fail！');");
+            out.println("window.location='phonemanage.jsp'");
+            out.println("</script>");
+        }
     }
     private void displayPhone2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Phone> list=phoneDao.displayPhone();

@@ -20,7 +20,25 @@ public class PhoneDaoImpl implements PhoneDao {
     ResultSet rs=null;
     @Override
     public int addPhone(Phone phone) {
-        return 0;
+        int count=-1;
+        String sql="insert into phone values(?,?,?,?,?,?,?)";
+        connection= JDBCUtil.getConnection();
+        try {
+            pstmt=connection.prepareStatement(sql);
+            pstmt.setInt(1,phone.getBid());
+            pstmt.setInt(2,phone.getPid());
+            pstmt.setString(3,phone.getModel());
+            pstmt.setInt(4,phone.getStock());
+            pstmt.setString(5,phone.getInfo());
+            pstmt.setInt(6,phone.getPrice());
+            pstmt.setString(7,phone.getImage());
+            count=pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeAll(connection,rs,pstmt);
+        }
+        return count;
     }
 
     @Override

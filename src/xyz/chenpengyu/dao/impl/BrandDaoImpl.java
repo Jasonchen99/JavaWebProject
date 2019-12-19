@@ -37,4 +37,20 @@ public class BrandDaoImpl implements BrandDao {
         }
         return brandList;
     }
+
+    @Override
+    public void addBrand(Brand brand) {
+        String sql="insert into brand values(?,?)";
+        connection= JDBCUtil.getConnection();
+        try {
+            pstmt=connection.prepareStatement(sql);
+            pstmt.setString(1,brand.getBname());
+            pstmt.setInt(2,brand.getBid());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeAll(connection,rs,pstmt);
+        }
+    }
 }

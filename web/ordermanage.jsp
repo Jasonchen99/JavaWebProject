@@ -23,7 +23,9 @@
             <div class="container" style="padding: 50px 10px 0px 10px">
                 <div class="am-g" style="margin-top: -30px;">
                     <c:forEach items="${orderList}" var="o">
-                        <form class="am-form" action="user/delAll.action">
+                        <form class="am-form" action="OrderServlet" method="post">
+                            <input type="hidden" name="method" value="deliver">
+                            <input type="text" name="oid" value="${o.oid}">
                             <div class="am-u-sm-12">
                                 <table class="am-table am-table-striped am-table-hover table-main">
                                     <thead>
